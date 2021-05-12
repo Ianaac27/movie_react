@@ -14,7 +14,8 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
   }
 
- //connect to routes
+ // Add routes, both API and view
+app.use("/api", require('./routes/api'));
 
  // Send every request to the React app
  app.get("*", function(req, res) {
