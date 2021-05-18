@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
+import Home from './pages/Home';
 
 function App() {
-  // const [movies, setMovies] = useState([]);
-  // return ( <div></div>
-  // );
+  return ( 
+    <>
+    <Home />
+    </>
+  );
 }
 
 export default App;
