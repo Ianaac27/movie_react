@@ -10,7 +10,7 @@ function Search ({setMovies}) {
     const handleSubmit = event => {
         event.preventDefault();
 
-        axios.get("http://www.omdbapi.com/?s="+movieInput.current.value+"&apikey="+apiKey)
+        axios.get("http://www.omdbapi.com/?s=" + movieInput.current.value + "&apikey=" + apiKey)
         .then(({data}) => {
             console.log(data.Search);
 
@@ -19,7 +19,7 @@ function Search ({setMovies}) {
     }
 
 return (
-    <Card>
+    <Card className="bg-dark">
     <Card.Body>
         <h2 className="fs-2" >Movie Search</h2>
         <Form onSubmit={handleSubmit} >

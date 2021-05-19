@@ -8,7 +8,9 @@ function Home () {
   return ( 
       <>
       <Search setMovies={setMovies}/>
-      <MovieResults movies={movies}/>
+      <div className="row">
+            <MovieResults movies={movies}/>
+      </div>
       </>
   );
 

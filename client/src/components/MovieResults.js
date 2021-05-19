@@ -4,7 +4,11 @@ function MovieResults({movies}) {
 
     return (
     <>
-        <img src={movies[0].Poster} alt={movies[0].Title}/>
+        {movies.map((movie, index)=>
+        <div className="w-25 h-25">
+                <img  src={movie.Poster} alt={movie.Title}/>
+        </div>
+        )}
     </>
     )
 }
