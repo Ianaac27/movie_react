@@ -1,10 +1,8 @@
 import axios from "axios";
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
 import { Card, Form, Button } from "react-bootstrap";
 
-function Search ({setMovies}) {
-    const [apiKey, setApiKey] = useState("a3d98e34")
-
+function Search ({setMovies, apiKey}) {
     const movieInput = useRef();
 
     const handleSubmit = event => {

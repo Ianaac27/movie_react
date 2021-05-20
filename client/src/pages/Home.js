@@ -4,12 +4,13 @@ import Search from "../components/Search";
 
 function Home () {
   const [movies, setMovies] = useState([]);
+  const [apiKey, setApiKey] = useState("a3d98e34")
 
   return ( 
       <>
-      <Search setMovies={setMovies}/>
+      <Search setMovies={setMovies} apiKey={apiKey}/>
       <div className="row">
-            <MovieResults movies={movies}/>
+            <MovieResults movies={movies} apiKey={apiKey}/>
       </div>
       </>
   );

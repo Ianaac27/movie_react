@@ -1,14 +1,14 @@
 const router = require("express").Router();
-const movieController = require("../../controllers/movieController");
+const moviesController = require("../../controllers/moviesController");
 
 // Matches with "/api/movies"
 router.route("/")
-  .get(movieController.findAll)
-  .post(movieController.create);
+  .get(moviesController.findAll)
+  .post(moviesController.create);
 
 // Matches with "/api/movies/:id"
 router
   .route("/:id")
-  .delete(movieController.remove);
+  .delete(moviesController.remove);
 
 module.exports = router;

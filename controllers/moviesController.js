@@ -1,5 +1,6 @@
 const db = require("../models");
 
+// Defining methods for the moviesController
 module.exports = {
   findAll: function(req, res) {
     db.Movie
@@ -16,8 +17,7 @@ module.exports = {
   },
   remove: function(req, res) {
     db.Movie
-    //check if req.params._id will work okay, or if needs to be req.params.id
-      .findById({ _id: req.params._id })
+      .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
