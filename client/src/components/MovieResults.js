@@ -1,14 +1,14 @@
 import React from "react";
 import SaveButton from "./SaveButton";
 
-function MovieResults({movies, apiKey}) {
+function MovieResults({movies, apiKey, setSavedMovies}) {
 
     return (
     <>
         {movies.map((movie, index)=>
         <div className="w-25 h-25">
                 <img  src={movie.Poster} alt={movie.Title}/>
-                <SaveButton movie={movie} apiKey={apiKey}/>
+                <SaveButton movie={movie} apiKey={apiKey} setSavedMovies={setSavedMovies}/>
         </div>
         )}
     </>

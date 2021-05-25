@@ -1,25 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import DeleteButton from "./DeleteButton";
-import API from "../utils/api";
 
-function SavedMovies () {
-
-    const [savedMovies, setSavedMovies] = useState([]);
-
-    console.log(savedMovies);
-
-    useEffect(() => {
-        loadMovies()
-      }, [])
-
-    const loadMovies = (req,res) => {
-        API.getMovies(res)
-            .then(res => {
-                setSavedMovies(res.data);
-                console.log(res.data);      
-            })
-            .catch(err => console.log(err));
-    }
+function SavedMovies ({savedMovies, setSavedMovies}) {
 
     return (
         <>

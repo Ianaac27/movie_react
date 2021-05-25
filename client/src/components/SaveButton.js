@@ -1,9 +1,18 @@
 import axios from "axios";
-import React from "react";
+import React, {useEffect} from "react";
 import { Button } from "react-bootstrap";
 import API from "../utils/api"
 
-function SaveButton({apiKey, movie}) {
+function SaveButton({apiKey, movie, setSavedMovies}) {
+
+    const loadMovies = (req,res) => {
+        API.getMovies(res)
+            .then(res => {
+                setSavedMovies(res.data);
+                console.log(res.data);      
+            })
+            .catch(err => console.log(err));
+          }
   
     const handleSave = event => {
         event.preventDefault();
@@ -23,7 +32,9 @@ function SaveButton({apiKey, movie}) {
                     title: data.Title,
                     type: data.Type,
                     year: data.Year
-                }).catch(err => console.log(err))
+                }) .then(res => 
+                    loadMovies()
+                ).catch(err => console.log(err))
             })
         }
 
