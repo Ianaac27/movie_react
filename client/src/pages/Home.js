@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import MovieResults from "../components/MovieResults";
+import SavedMovies from "../components/SavedMovies";
 import Search from "../components/Search";
 
 function Home () {
@@ -11,6 +12,9 @@ function Home () {
       <Search setMovies={setMovies} apiKey={apiKey}/>
       <div className="row">
             <MovieResults movies={movies} apiKey={apiKey}/>
+      </div>
+      <div className="row">
+            <SavedMovies />
       </div>
       </>
   );
