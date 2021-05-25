@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
-// import { Card } from "react-bootstrap";
-// import "../styles/card.css";
-// import DeleteButton from "./DeleteButton";
+import DeleteButton from "./DeleteButton";
 import API from "../utils/api";
 
 function SavedMovies () {
@@ -28,6 +26,7 @@ function SavedMovies () {
         {savedMovies.length > 0 ? savedMovies.map((movie, index)=>
         <div className="w-25 h-25">
                 <img  src={movie.poster} alt={movie.title}/>
+                <DeleteButton id={movie._id} setSavedMovies={setSavedMovies} />
         </div>
         ): <h3 className="fs-1 text-white text-center mt-5">You have no saved movies</h3>}  
         </>

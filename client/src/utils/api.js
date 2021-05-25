@@ -13,6 +13,7 @@ const API = {
   },
    // Deletes the movie with the given id
    deleteMovie: function(id) {
+     console.log(id)
     return axios.delete("/api/movies/" + id);
   }
 
