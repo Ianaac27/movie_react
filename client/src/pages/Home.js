@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import MovieModule from "../components/MovieModule.js";
 import MovieResults from "../components/MovieResults";
 import SavedMovies from "../components/SavedMovies";
 import Search from "../components/Search";
@@ -20,7 +21,7 @@ const loadMovies = (req,res) => {
             console.log(res.data);      
         })
         .catch(err => console.log(err));
-      }
+      } 
 
   return ( 
       <>
@@ -29,7 +30,7 @@ const loadMovies = (req,res) => {
             <MovieResults movies={movies} apiKey={apiKey} setSavedMovies={setSavedMovies}/>
       </div>
       <div className="row">
-            <SavedMovies savedMovies={savedMovies} setSavedMovies={setSavedMovies}/>
+            <SavedMovies savedMovies={savedMovies} setSavedMovies={setSavedMovies} />
       </div>
       </>
   );

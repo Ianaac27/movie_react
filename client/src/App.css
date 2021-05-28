@@ -28,3 +28,43 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000; 
 }
+
+/* ================= Module Animation ===================== */
+.module {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  background-color: rgb(17, 17, 17);
+  background-size: cover;
+  background-blend-mode: multiply;
+  width: 100%;
+  height:100%;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  opacity: .98;
+  transform: translateY(-100%);
+  transition:
+    transform 750ms cubic-bezier(.5, 0, .5, 1),
+    opacity 250ms linear;
+  box-shadow: -15px -5px -30px rgb(49, 48, 48);
+}
+
+.mod-main {
+  box-shadow: 15px 5px 30px rgb(49, 48, 48);;
+}
+
+.mod-toggle:hover {
+  opacity: .5;
+} 
+
+ .mod-open .module{
+  transform: translateX(0);
+} 
+
+.mod-open .mod-toggle {
+  position: fixed;
+}
