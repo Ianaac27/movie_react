@@ -5,7 +5,7 @@ const movieSchema = new Schema({
     actors: String,
     director: String,
     id: String,
-    metascore: String,
+    score: String,
     plot: String,
     poster: String,
     rated: String,

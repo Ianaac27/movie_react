@@ -22,7 +22,7 @@ function MovieModule({selectedMovie, handleModuleLink}) {
                 <p>Starring: {selectedMovie.actors}</p>
                 <p>Directed by: {selectedMovie.director}</p>
                 <p>{selectedMovie.plot}</p>
-                <p>Metascore: {selectedMovie.metascore}</p>
+                <p>IMDB Rating: {selectedMovie.score}</p>
             </div>
             <div className="movie-sources d-flex flex-column ml-4">
                 <img className="movie-poster" src={selectedMovie.poster} alt=""/>

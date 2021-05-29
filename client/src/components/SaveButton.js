@@ -19,12 +19,19 @@ function SaveButton({apiKey, movie, setSavedMovies, savedMovies}) {
 
         let checker = true;
 
-        for (var i = 0; i < savedMovies.length; i++) {
-            if (savedMovies[i].id == movie.imdbID) {
-                checker = true;
-            }
-            else {
-                checker = false;
+        if (savedMovies.length == 0) {
+            checker = false;
+        }
+
+        else {
+
+            for (var i = 0; i < savedMovies.length; i++) {
+                if (savedMovies[i].id == movie.imdbID) {
+                    checker = true;
+                } 
+                else {
+                    checker = false;
+                }
             }
         }
 
@@ -38,11 +45,12 @@ function SaveButton({apiKey, movie, setSavedMovies, savedMovies}) {
         } else {
             axios.get("http://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=" + apiKey)
             .then(({data}) => {
+                console.log(data)
                 API.saveMovie({
                     actors: data.Actors,
                     director: data.Director,
                     id: data.imdbID,
-                    metascore: data.Metascore,
+                    score: data.imdbRating,
                     plot: data.Plot,
                     poster: data.Poster, 
                     rated: data.Rated,
