@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import { Button } from "react-bootstrap";
 import API from "../utils/api"
 
-function SaveButton({apiKey, movie, setSavedMovies}) {
+function SaveButton({apiKey, movie, setSavedMovies, savedMovies}) {
 
     const loadMovies = (req,res) => {
         API.getMovies(res)
@@ -14,12 +14,30 @@ function SaveButton({apiKey, movie, setSavedMovies}) {
             .catch(err => console.log(err));
           }
   
-    const handleSave = event => {
+    const checkSave = event => {
         event.preventDefault();
-        console.log(movie.imdbID)
-        axios.get("http://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=" + apiKey)
+
+        let checker = true;
+
+        for (var i = 0; i < savedMovies.length; i++) {
+            if (savedMovies[i].id == movie.imdbID) {
+                checker = true;
+            }
+            else {
+                checker = false;
+            }
+        }
+
+        handleSave(checker);
+    }
+
+    const handleSave = checker => {
+        if (checker == true) {
+            console.log("This movie is already saved")
+            return;
+        } else {
+            axios.get("http://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=" + apiKey)
             .then(({data}) => {
-                console.log(data)
                 API.saveMovie({
                     actors: data.Actors,
                     director: data.Director,
@@ -32,15 +50,17 @@ function SaveButton({apiKey, movie, setSavedMovies}) {
                     title: data.Title,
                     type: data.Type,
                     year: data.Year
-                }) .then(res => 
+                })
+            .then(res => 
                     loadMovies()
                 ).catch(err => console.log(err))
             })
         }
+    }
 
     return (
         <>
-            <Button type="button" className="btn btn-primary ml-2" style={{height: "40px"}} onClick={handleSave}>Save</Button>
+            <Button type="button" className="btn btn-primary ml-2" style={{height: "40px"}} onClick={checkSave}>Save</Button>
         </>
     )
 }

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import MovieModule from "../components/MovieModule.js";
 import MovieResults from "../components/MovieResults";
 import SavedMovies from "../components/SavedMovies";
 import Search from "../components/Search";
@@ -27,7 +26,7 @@ const loadMovies = (req,res) => {
       <>
       <Search setMovies={setMovies} apiKey={apiKey}/>
       <div className="row">
-            <MovieResults movies={movies} apiKey={apiKey} setSavedMovies={setSavedMovies}/>
+            <MovieResults savedMovies={savedMovies} movies={movies} apiKey={apiKey} setSavedMovies={setSavedMovies}/>
       </div>
       <div className="row">
             <SavedMovies savedMovies={savedMovies} setSavedMovies={setSavedMovies} />
