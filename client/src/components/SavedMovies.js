@@ -23,7 +23,7 @@ function SavedMovies ({savedMovies, setSavedMovies}) {
              <div className="row" id="faveMovies">
                 {savedMovies.length > 0 ? savedMovies.map((movie, index)=>
                 <div className="w-25 h-25" >
-                        <img className="mod-toggle" id={movie._id} src={movie.poster} alt={movie.title} onClick={e => handleMovieModule(e, movie)}/>
+                        <img className="mod-toggle" id={movie.id} src={movie.poster} alt={movie.title} onClick={e => handleMovieModule(e, movie)}/>
                         <DeleteButton id={movie._id} setSavedMovies={setSavedMovies} />
                 </div>
                 ):  <div className="col">

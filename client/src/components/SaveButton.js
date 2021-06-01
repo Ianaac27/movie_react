@@ -3,7 +3,9 @@ import React, {useEffect} from "react";
 import { Button } from "react-bootstrap";
 import API from "../utils/api"
 
-function SaveButton({apiKey, movie, setSavedMovies, savedMovies}) {
+function SaveButton({apiKey, movie, setSavedMovies, savedMovies, selectedSearch}) {
+
+    console.log(selectedSearch);
 
     const loadMovies = (req,res) => {
         API.getMovies(res)
@@ -26,7 +28,7 @@ function SaveButton({apiKey, movie, setSavedMovies, savedMovies}) {
         else {
 
             for (var i = 0; i < savedMovies.length; i++) {
-                if (savedMovies[i].id == movie.imdbID) {
+                if (savedMovies[i].id == selectedSearch.id) {
                     checker = true;
                 } 
                 else {
@@ -43,7 +45,7 @@ function SaveButton({apiKey, movie, setSavedMovies, savedMovies}) {
             console.log("This movie is already saved")
             return;
         } else {
-            axios.get("http://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=" + apiKey)
+            axios.get("http://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
             .then(({data}) => {
                 console.log(data)
                 API.saveMovie({
