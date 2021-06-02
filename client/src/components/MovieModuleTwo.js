@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import SaveButton from "./SaveButton";
+import DeleteButtonTwo from "./DeleteButtonTwo";
 import "../App.css";
 
 function MovieModuleTwo({selectedSearch, handleModuleLink,
     savedMovies, apiKey, setSavedMovies
 }) {
 
-    console.log(selectedSearch)
+    console.log(savedMovies)
     
     return (
     <Card className="moduleTwo" >
@@ -32,6 +33,7 @@ function MovieModuleTwo({selectedSearch, handleModuleLink,
                     apiKey={apiKey} 
                     setSavedMovies={setSavedMovies}
                 />
+                <DeleteButtonTwo savedMovies={savedMovies}  selectedSearch={selectedSearch} setSavedMovies={setSavedMovies} />
 
             </div>
             <div className="movie-sources d-flex flex-column ml-4">
