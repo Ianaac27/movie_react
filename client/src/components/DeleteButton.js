@@ -6,8 +6,6 @@ function DeleteButton({setSavedMovies, id}) {
 
     console.log(id)
 
-    // I need to bring in the savedMovies state through ModuleTwo, and prop to delete button. If this is tricky, I may need to create a second delete button component
-
     const deleteMovie = (id) => {
         console.log(id)
         API.deleteMovie(id)

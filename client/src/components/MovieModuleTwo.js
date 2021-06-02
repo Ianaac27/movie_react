@@ -33,7 +33,7 @@ function MovieModuleTwo({selectedSearch, handleModuleLink,
                     apiKey={apiKey} 
                     setSavedMovies={setSavedMovies}
                 />
-                <DeleteButtonTwo savedMovies={savedMovies}  selectedSearch={selectedSearch} setSavedMovies={setSavedMovies} />
+                <DeleteButtonTwo savedMovies={savedMovies} selectedSearch={selectedSearch} setSavedMovies={setSavedMovies} />
 
             </div>
             <div className="movie-sources d-flex flex-column ml-4">

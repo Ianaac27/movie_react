@@ -1,9 +1,11 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "../App.css";
+import SaveButtonTwo from "./SaveButtonTwo";
+import DeleteButton from "./DeleteButton";
 
 
-function MovieModule({selectedMovie, handleModuleLink}) {
+function MovieModule({selectedMovie, savedMovies, setSavedMovies, handleModuleLink}) {
 
     console.log(selectedMovie)
     
@@ -23,6 +25,15 @@ function MovieModule({selectedMovie, handleModuleLink}) {
                 <p>Directed by: {selectedMovie.director}</p>
                 <p>{selectedMovie.plot}</p>
                 <p>IMDB Rating: {selectedMovie.score}</p>
+
+                <SaveButtonTwo 
+                    savedMovies={savedMovies} 
+                    selectedMovie={selectedMovie} 
+                    setSavedMovies={setSavedMovies}
+                />
+
+                <DeleteButton id={selectedMovie._id} setSavedMovies={setSavedMovies} />
+
             </div>
             <div className="movie-sources d-flex flex-column ml-4">
                 <img className="movie-poster" src={selectedMovie.poster} alt=""/>

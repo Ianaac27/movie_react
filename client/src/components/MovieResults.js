@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, {useState} from "react";
 import MovieModuleTwo from "./MovieModuleTwo";
-// import SaveButton from "./SaveButton";
 
 function MovieResults({movies, apiKey, setSavedMovies, savedMovies}) {
 
@@ -36,18 +35,17 @@ function MovieResults({movies, apiKey, setSavedMovies, savedMovies}) {
         {movies.length > 0 ? movies.map((movie, index)=>
         <div className="w-25 h-25">
                 <img className="mod-toggleTwo" src={movie.Poster} alt={movie.Title} onClick={e => handleMovieModule(e, movie)} />
-                {/* <SaveButton savedMovies={savedMovies} movie={movie} apiKey={apiKey} setSavedMovies={setSavedMovies}/> */}
         </div>
         ):  <div className="col">
                 <h3 className="fs-1 text-white text-center mt-5">Search for any movie!</h3>
             </div>}
         <MovieModuleTwo 
-        savedMovies={savedMovies}
-        apiKey={apiKey}
-        setSavedMovies={setSavedMovies}
-        
-        selectedSearch={selectedSearch} 
-        handleModuleLink={handleModuleLink} />    
+            savedMovies={savedMovies}
+            apiKey={apiKey}
+            setSavedMovies={setSavedMovies}
+            selectedSearch={selectedSearch} 
+            handleModuleLink={handleModuleLink} 
+            />    
     </>
     )
 }

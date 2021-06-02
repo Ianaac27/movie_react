@@ -7,7 +7,6 @@ function DeleteButtonTwo({setSavedMovies, savedMovies, selectedSearch}) {
     // I need to bring in the savedMovies state through ModuleTwo, and prop to delete button. If this is tricky, I may need to create a second delete button component
 
     const deleteMovie = (e) => {
-        
         for (var i = 0; i < savedMovies.length; i++) {
             if (savedMovies[i].id == selectedSearch.id) {
                 const id = savedMovies[i]._id
