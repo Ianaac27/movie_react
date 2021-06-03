@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import API from "../utils/api";
+import API from "../../utils/api";
 
-function DeleteButton({setSavedMovies, id}) {
+function DeleteButtonSaved({setSavedMovies, id}) {
 
     console.log(id)
 
@@ -25,4 +25,4 @@ function DeleteButton({setSavedMovies, id}) {
     )
 }
 
-export default DeleteButton
+export default DeleteButtonSaved

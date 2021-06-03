@@ -1,11 +1,12 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import "../App.css";
-import SaveButtonTwo from "./SaveButtonTwo";
-import DeleteButton from "./DeleteButton";
+import "../../App.css";
+import SaveButtonSaved from "../SaveButtons/SaveButtonSaved";
+import DeleteButtonSaved from "../DeleteButtons/DeleteButtonSaved";
+import FavButton from "../FavButton/FavButton";
 
 
-function MovieModule({selectedMovie, savedMovies, setSavedMovies, handleModuleLink}) {
+function MovieModuleSaved({selectedMovie, savedMovies, setSavedMovies, handleModuleLink, open, setOpen}) {
 
     console.log(selectedMovie)
     
@@ -26,14 +27,11 @@ function MovieModule({selectedMovie, savedMovies, setSavedMovies, handleModuleLi
                 <p>{selectedMovie.plot}</p>
                 <p>IMDB Rating: {selectedMovie.score}</p>
 
-                <SaveButtonTwo 
-                    savedMovies={savedMovies} 
-                    selectedMovie={selectedMovie} 
-                    setSavedMovies={setSavedMovies}
-                />
-
-                <DeleteButton id={selectedMovie._id} setSavedMovies={setSavedMovies} />
-
+                <FavButton open={open} setOpen={setOpen}/>
+                { selectedMovie.favorite === true ?
+                <DeleteButtonSaved id={selectedMovie._id} setSavedMovies={setSavedMovies}/>
+                :
+                <SaveButtonSaved savedMovies={savedMovies} selectedMovie={selectedMovie} setSavedMovies={setSavedMovies}/>}
             </div>
             <div className="movie-sources d-flex flex-column ml-4">
                 <img className="movie-poster" src={selectedMovie.poster} alt=""/>
@@ -47,4 +45,4 @@ function MovieModule({selectedMovie, savedMovies, setSavedMovies, handleModuleLi
     )
 }
 
-export default MovieModule;
+export default MovieModuleSaved;

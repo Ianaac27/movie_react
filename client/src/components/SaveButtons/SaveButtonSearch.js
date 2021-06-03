@@ -1,8 +1,9 @@
+import axios from "axios";
 import React from "react";
 import { Button } from "react-bootstrap";
-import API from "../utils/api"
+import API from "../../utils/api"
 
-function SaveButtonTwo({setSavedMovies, savedMovies, selectedMovie}) {
+function SaveButtonSearch({apiKey, setSavedMovies, savedMovies, selectedSearch}) {
 
     const loadMovies = (req,res) => {
         API.getMovies(res)
@@ -22,7 +23,7 @@ function SaveButtonTwo({setSavedMovies, savedMovies, selectedMovie}) {
         }
         else {
             for (var i = 0; i < savedMovies.length; i++) {
-                if (savedMovies[i].id == selectedMovie.id) {
+                if (savedMovies[i].id == selectedSearch.id) {
                     checker = true;
                 } 
                 else {
@@ -39,24 +40,28 @@ function SaveButtonTwo({setSavedMovies, savedMovies, selectedMovie}) {
             console.log("This movie is already saved")
             return;
         } else {
+            axios.get("http://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
+            .then(({data}) => {
+                console.log(data)
                 API.saveMovie({
-                    actors: selectedMovie.actors,
-                    director: selectedMovie.director,
-                    id: selectedMovie.id,
-                    score: selectedMovie.score,
-                    plot: selectedMovie.plot,
-                    poster: selectedMovie.poster, 
-                    rated: selectedMovie.rated,
-                    runtime: selectedMovie.runtime, 
-                    title: selectedMovie.title,
-                    type: selectedMovie.type,
-                    year: selectedMovie.year
+                    actors: data.Actors,
+                    director: data.Director,
+                    id: data.imdbID,
+                    score: data.imdbRating,
+                    plot: data.Plot,
+                    poster: data.Poster, 
+                    rated: data.Rated,
+                    runtime: data.Runtime, 
+                    title: data.Title,
+                    type: data.Type,
+                    year: data.Year
                 })
             .then(res => 
                     loadMovies()
                 ).catch(err => console.log(err))
-            }
+            })
         }
+    }
 
     return (
         <>
@@ -65,4 +70,4 @@ function SaveButtonTwo({setSavedMovies, savedMovies, selectedMovie}) {
     )
 }
 
-export default SaveButtonTwo
+export default SaveButtonSearch

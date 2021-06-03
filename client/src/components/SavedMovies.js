@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import MovieModule from "./MovieModule";
+import MovieModuleSaved from "./MovieModules/MovieModuleSaved";
 // import "../App.css"
 
-function SavedMovies ({savedMovies, setSavedMovies}) {
+function SavedMovies ({savedMovies, setSavedMovies, open, setOpen}) {
 
         const [selectedMovie, setSelectedMovie] = useState([]);
 
@@ -13,7 +13,8 @@ function SavedMovies ({savedMovies, setSavedMovies}) {
         
         const handleModuleLink = e => {
                 document.body.classList.remove('mod-open');
-        }    
+        }  
+        
 
     return (
         <>
@@ -30,7 +31,14 @@ function SavedMovies ({savedMovies, setSavedMovies}) {
             </div>
             
         </div>
-        <MovieModule selectedMovie={selectedMovie} savedMovies={savedMovies} setSavedMovies={setSavedMovies} handleModuleLink={handleModuleLink}  />
+        <MovieModuleSaved 
+                selectedMovie={selectedMovie} 
+                savedMovies={savedMovies} 
+                setSavedMovies={setSavedMovies} 
+                handleModuleLink={handleModuleLink} 
+                open={open} 
+                setOpen={setOpen} 
+        />
         </>
 )
 }

@@ -1,10 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import API from "../utils/api";
+import API from "../../utils/api";
 
-function DeleteButtonTwo({setSavedMovies, savedMovies, selectedSearch}) {
-
-    // I need to bring in the savedMovies state through ModuleTwo, and prop to delete button. If this is tricky, I may need to create a second delete button component
+function DeleteButtonSearch({setSavedMovies, savedMovies, selectedSearch}) {
 
     const deleteMovie = (e) => {
         for (var i = 0; i < savedMovies.length; i++) {
@@ -30,4 +28,4 @@ function DeleteButtonTwo({setSavedMovies, savedMovies, selectedSearch}) {
     )
 }
 
-export default DeleteButtonTwo
+export default DeleteButtonSearch
