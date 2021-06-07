@@ -1,9 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "../../App.css";
-import SaveButtonSearch from "../SaveButtons/SaveButtonSearch";
-import DeleteButtonSearch from "../DeleteButtons/DeleteButtonSearch";
-import FavButton from "../FavButton/FavButton";
+import FavButtonSearch from "../FavButtonSearch/FavButtonSearch";
 
 function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKey, setSavedMovies, open, setOpen}) {
 
@@ -26,22 +24,14 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
                 <p>{selectedSearch.plot}</p>
                 <p>IMDB Rating: {selectedSearch.score}</p>
 
-                <FavButton open={open} setOpen={setOpen}/>
-                { selectedSearch.favorite === true ?
-                <DeleteButtonSearch 
+                <FavButtonSearch 
+                    open={open} 
+                    setOpen={setOpen}
                     savedMovies={savedMovies} 
                     selectedSearch={selectedSearch} 
-                    setSavedMovies={setSavedMovies} 
-                />
-                
-                :
-                <SaveButtonSearch 
-                    savedMovies={savedMovies} 
-                    selectedSearch={selectedSearch} 
-                    apiKey={apiKey} 
                     setSavedMovies={setSavedMovies}
+                    apiKey={apiKey}
                 />
-                }
             </div>
             <div className="movie-sources d-flex flex-column ml-4">
                 <img className="movie-poster" src={selectedSearch.poster} alt=""/>

@@ -24,13 +24,45 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
                     type: data.Type,
                     year: data.Year
                 })
-                document.body.classList.toggle('mod-openTwo');
+                checkFav(movie)
             })
         }
           
         const handleModuleLink = e => {
               document.body.classList.remove('mod-openTwo');
           }    
+
+          const checkFav = (movie) => {
+            let checker = true;
+          
+            if (savedMovies.length == 0) {
+                checker = false;
+            }
+            else {
+                for (var i = 0; i < savedMovies.length; i++) {
+                    if (savedMovies[i].id == movie.imdbID) {
+                        checker = true;
+                    } 
+                    else {
+                        checker = false;
+                    }
+                }
+            }
+          
+            setToggle(checker)
+          }
+
+          const setToggle = checker => {
+            console.log(checker)
+            if (checker == true) {
+                    setOpen(true)
+                console.log("Set open to true")
+            } else {
+                    setOpen(false)
+                console.log("Set open to false") 
+            }
+            document.body.classList.toggle('mod-openTwo');
+          }
 
     return (
     <>
