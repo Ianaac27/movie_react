@@ -8,12 +8,44 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen}) {
 
         const handleMovieModule = (e, movie) => {
                 setSelectedMovie(movie)
-                document.body.classList.toggle('mod-open');
+                checkFav(movie)
               }
         
         const handleModuleLink = e => {
                 document.body.classList.remove('mod-open');
         }  
+
+        const checkFav = (movie) => {
+                let checker = true;
+              
+                if (savedMovies.length == 0) {
+                    checker = false;
+                }
+                else {
+                    for (var i = 0; i < savedMovies.length; i++) {
+                        if (savedMovies[i].id == movie.id) {
+                            checker = true;
+                        } 
+                        else {
+                            checker = false;
+                        }
+                    }
+                }
+              
+                setToggle(checker)
+              }
+
+              const setToggle = checker => {
+                console.log(checker)
+                if (checker == true) {
+                        setOpen(true)
+                    console.log("Set open to true")
+                } else {
+                        setOpen(false)
+                    console.log("Set open to false") 
+                }
+                document.body.classList.toggle('mod-open');
+              }
         
 
     return (
