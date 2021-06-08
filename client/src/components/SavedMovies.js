@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import MovieModuleSaved from "./MovieModules/MovieModuleSaved";
 // import "../App.css"
 
-function SavedMovies ({savedMovies, setSavedMovies, open, setOpen}) {
+function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, setSavedIds}) {
 
         const [selectedMovie, setSelectedMovie] = useState([]);
 
@@ -17,35 +17,30 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen}) {
 
         const checkFav = (movie) => {
                 let checker = true;
-              
-                if (savedMovies.length == 0) {
+                if (savedIds.length == 0) {
                     checker = false;
                 }
                 else {
-                    for (var i = 0; i < savedMovies.length; i++) {
-                        if (savedMovies[i].id == movie.id) {
+                        if (savedIds.includes( movie.id )) {
                             checker = true;
                         } 
                         else {
                             checker = false;
                         }
-                    }
                 }
-              
                 setToggle(checker)
               }
 
-              const setToggle = checker => {
-                console.log(checker)
-                if (checker == true) {
-                        setOpen(true)
-                    console.log("Set open to true")
-                } else {
-                        setOpen(false)
-                    console.log("Set open to false") 
-                }
-                document.body.classList.toggle('mod-open');
-              }
+        const setToggle = checker => {
+            if (checker == true) {
+                    setOpen(true)
+                console.log("Set open to true")
+            } else {
+                    setOpen(false)
+                console.log("Set open to false") 
+            }
+            document.body.classList.toggle('mod-open');
+        }
         
 
     return (
@@ -70,6 +65,8 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen}) {
                 handleModuleLink={handleModuleLink} 
                 open={open} 
                 setOpen={setOpen} 
+                savedIds={savedIds}
+                setSavedIds={setSavedIds}
         />
         </>
 )

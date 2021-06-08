@@ -2,17 +2,27 @@ import React from 'react';
 import {StyledFavButton } from './FavButton.styled';
 import API from "../../utils/api";
 
-const FavButton = ({ open, setOpen, setSavedMovies, id, selectedMovie }) => {
+const FavButton = ({ open, setOpen, setSavedMovies, id, selectedMovie, savedIds, setSavedIds }) => {
 
 const toggleFav = () => {
   if (open == true) {
       setOpen(false)
+
+      const removeId = savedIds.indexOf(selectedMovie.id);
+      if (removeId > -1) {
+        savedIds.splice(removeId, 1);
+      }
+
       API.deleteMovie(id)
             .then(res => 
               loadMovies()
             )
   } else {
       setOpen(true) 
+
+      const addId = savedIds.concat(selectedMovie.id);
+      setSavedIds(addId)
+
       API.saveMovie({
         actors: selectedMovie.actors,
         director: selectedMovie.director,

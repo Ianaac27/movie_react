@@ -2,11 +2,9 @@ import axios from "axios";
 import React, {useState} from "react";
 import MovieModuleSearch from "./MovieModules/MovieModuleSearch";
 
-function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOpen}) {
+function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOpen, savedIds, setSavedIds}) {
 
     const [selectedSearch, setSelectedSearch] = useState([]);
-
-    console.log(selectedSearch)
 
     const handleMovieModule = (e, movie) => {
         axios.get("http://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=" + apiKey)
@@ -34,21 +32,17 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
 
           const checkFav = (movie) => {
             let checker = true;
-          
-            if (savedMovies.length == 0) {
+            if (savedIds.length == 0) {
                 checker = false;
             }
             else {
-                for (var i = 0; i < savedMovies.length; i++) {
-                    if (savedMovies[i].id == movie.imdbID) {
+                    if (savedIds.includes(movie.imdbID)) {
                         checker = true;
                     } 
                     else {
                         checker = false;
                     }
                 }
-            }
-          
             setToggle(checker)
           }
 
@@ -80,7 +74,9 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
             selectedSearch={selectedSearch} 
             handleModuleLink={handleModuleLink}
             open={open} 
-            setOpen={setOpen}  
+            setOpen={setOpen}
+            savedIds={savedIds}
+            setSavedIds={setSavedIds}  
         />    
     </>
     )

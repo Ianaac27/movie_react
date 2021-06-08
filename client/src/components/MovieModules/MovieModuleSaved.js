@@ -4,9 +4,7 @@ import "../../App.css";
 import FavButton from "../FavButton/FavButton";
 
 
-function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open, setOpen}) {
-
-    console.log(selectedMovie)
+function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open, setOpen, savedIds, setSavedIds}) {
     
     return (
     <Card className="module" >
@@ -25,7 +23,14 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
                 <p>{selectedMovie.plot}</p>
                 <p>IMDB Rating: {selectedMovie.score}</p>
 
-                <FavButton open={open} setOpen={setOpen} id={selectedMovie._id} setSavedMovies={setSavedMovies} selectedMovie={selectedMovie}/>
+                <FavButton 
+                    open={open} 
+                    setOpen={setOpen} 
+                    id={selectedMovie._id} 
+                    setSavedMovies={setSavedMovies} 
+                    selectedMovie={selectedMovie}
+                    savedIds={savedIds}
+                    setSavedIds={setSavedIds}/>
 
             </div>
             <div className="movie-sources d-flex flex-column ml-4">

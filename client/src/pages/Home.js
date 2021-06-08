@@ -7,6 +7,7 @@ import API from "../utils/api";
 function Home () {
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
+  const [savedIds, setSavedIds] = useState([]);
   const [apiKey, setApiKey] = useState("a3d98e34")
   const [open, setOpen] = useState(false);
 
@@ -17,8 +18,7 @@ function Home () {
 const loadMovies = (req,res) => {
     API.getMovies(res)
         .then(res => {
-            setSavedMovies(res.data);
-            console.log(res.data);      
+            setSavedMovies(res.data);      
         })
         .catch(err => console.log(err));
       } 
@@ -27,10 +27,24 @@ const loadMovies = (req,res) => {
       <>
       <Search setMovies={setMovies} apiKey={apiKey}/>
       <div className="row">
-            <SearchResults savedMovies={savedMovies} movies={movies} apiKey={apiKey} setSavedMovies={setSavedMovies} open={open} setOpen={setOpen}/>
+            <SearchResults 
+              savedMovies={savedMovies} 
+              movies={movies} 
+              apiKey={apiKey} 
+              setSavedMovies={setSavedMovies} 
+              open={open} 
+              setOpen={setOpen}
+              savedIds={savedIds}
+              setSavedIds={setSavedIds}/>
       </div>
       <div className="row">
-            <SavedMovies savedMovies={savedMovies} setSavedMovies={setSavedMovies} open={open} setOpen={setOpen}/>
+            <SavedMovies 
+              savedMovies={savedMovies} 
+              setSavedMovies={setSavedMovies} 
+              open={open} 
+              setOpen={setOpen}
+              savedIds={savedIds}
+              setSavedIds={setSavedIds}/>
       </div>
       </>
   );

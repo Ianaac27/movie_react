@@ -3,9 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import "../../App.css";
 import FavButtonSearch from "../FavButtonSearch/FavButtonSearch";
 
-function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKey, setSavedMovies, open, setOpen}) {
-
-    console.log(savedMovies)
+function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKey, setSavedMovies, open, setOpen, savedIds, setSavedIds}) {
     
     return (
     <Card className="moduleTwo" >
@@ -31,6 +29,8 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
                     selectedSearch={selectedSearch} 
                     setSavedMovies={setSavedMovies}
                     apiKey={apiKey}
+                    savedIds={savedIds}
+                    setSavedIds={setSavedIds}
                 />
             </div>
             <div className="movie-sources d-flex flex-column ml-4">

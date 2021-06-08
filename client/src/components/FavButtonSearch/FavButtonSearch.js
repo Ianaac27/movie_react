@@ -4,13 +4,19 @@ import React from 'react';
 import {StyledFavButtonSearch } from './FavButtonSearch.styled';
 import API from "../../utils/api";
 
-const FavButtonSearch = ({apiKey, open, setOpen, setSavedMovies, savedMovies, selectedSearch }) => {
+const FavButtonSearch = ({apiKey, open, setOpen, setSavedMovies, savedMovies, selectedSearch, savedIds, setSavedIds }) => {
 
 const toggleFav = () => {
   if (open == true) {
       setOpen(false)
+
+      const removeId = savedIds.indexOf(selectedSearch.id);
+      if (removeId > -1) {
+        savedIds.splice(removeId, 1);
+      }
+
       for (var i = 0; i < savedMovies.length; i++) {
-        if (savedMovies[i].id == selectedSearch.id) {
+        if (savedMovies[i].id === selectedSearch.id) {
             const id = savedMovies[i]._id
             API.deleteMovie(id)
                     .then(res => loadMovies()
@@ -18,6 +24,10 @@ const toggleFav = () => {
         }
   } else {
       setOpen(true) 
+
+      const addId = savedIds.concat(selectedSearch.id);
+      setSavedIds(addId)
+
       axios.get("http://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
             .then(({data}) => {
                 console.log(data)
