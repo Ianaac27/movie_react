@@ -1,14 +1,18 @@
 import axios from "axios";
 import React, {useState} from "react";
 import MovieModuleSearch from "./MovieModules/MovieModuleSearch";
+import movieTrailer from 'movie-trailer';
 
-function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOpen, savedIds, setSavedIds}) {
+function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOpen, savedIds, setSavedIds, embedId, setEmbedId}) {
 
     const [selectedSearch, setSelectedSearch] = useState([]);
 
     const handleMovieModule = (e, movie) => {
         axios.get("http://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=" + apiKey)
         .then(({data}) => {
+
+                const movieTitle = data.Title
+
                 setSelectedSearch({
                     actors: data.Actors,
                     director: data.Director,
@@ -22,8 +26,16 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
                     type: data.Type,
                     year: data.Year
                 })
+                handleMovieTrailer(movieTitle)
                 checkFav(movie)
             })
+        }
+
+        const handleMovieTrailer = ( movieTitle ) => {
+
+            movieTrailer( movieTitle, {id: true} )
+            .then( res => setEmbedId(res) 
+            )
         }
           
         const handleModuleLink = e => {
@@ -77,6 +89,7 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
             setOpen={setOpen}
             savedIds={savedIds}
             setSavedIds={setSavedIds}  
+            embedId={embedId}
         />    
     </>
     )

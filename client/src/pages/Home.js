@@ -10,6 +10,7 @@ function Home () {
   const [savedIds, setSavedIds] = useState([]);
   const [apiKey, setApiKey] = useState("a3d98e34")
   const [open, setOpen] = useState(false);
+  const [embedId, setEmbedId] = useState([]);
 
   useEffect(() => {
     loadMovies()
@@ -44,7 +45,9 @@ const loadMovies = (req,res) => {
               open={open} 
               setOpen={setOpen}
               savedIds={savedIds}
-              setSavedIds={setSavedIds}/>
+              setSavedIds={setSavedIds}
+              embedId={embedId}
+              setEmbedId={setEmbedId}/>
       </div>
       <div className="row">
             <SavedMovies 
@@ -53,7 +56,9 @@ const loadMovies = (req,res) => {
               open={open} 
               setOpen={setOpen}
               savedIds={savedIds}
-              setSavedIds={setSavedIds}/>
+              setSavedIds={setSavedIds}
+              embedId={embedId}
+              setEmbedId={setEmbedId}/>
       </div>
       </>
   );

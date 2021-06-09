@@ -1,15 +1,26 @@
 import React, {useState} from "react";
 import MovieModuleSaved from "./MovieModules/MovieModuleSaved";
-// import "../App.css"
+import movieTrailer from 'movie-trailer';
 
-function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, setSavedIds}) {
+function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, setSavedIds, embedId, setEmbedId}) {
 
         const [selectedMovie, setSelectedMovie] = useState([]);
 
         const handleMovieModule = (e, movie) => {
+
+                const movieTitle = movie.title
+
                 setSelectedMovie(movie)
+                handleMovieTrailer(movieTitle)
                 checkFav(movie)
               }
+
+        const handleMovieTrailer = ( movieTitle ) => {
+
+            movieTrailer( movieTitle, {id: true} )
+            .then( res => setEmbedId(res) 
+            )
+        }
         
         const handleModuleLink = e => {
                 document.body.classList.remove('mod-open');
@@ -67,6 +78,7 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, set
                 setOpen={setOpen} 
                 savedIds={savedIds}
                 setSavedIds={setSavedIds}
+                embedId={embedId}
         />
         </>
 )

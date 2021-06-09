@@ -3,8 +3,9 @@ import { Card, Button } from "react-bootstrap";
 import "../../App.css";
 import FavButtonSearch from "../FavButtonSearch/FavButtonSearch";
 import RatingBarSearch from "../RatingBars/RatingBarSearch";
+import YoutubeEmbed from "../YoutubeEmbed";
 
-function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKey, setSavedMovies, open, setOpen, savedIds, setSavedIds}) {
+function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKey, setSavedMovies, open, setOpen, savedIds, setSavedIds, embedId}) {
     
     return (
     <Card className="moduleTwo" >
@@ -36,8 +37,10 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
             </div>
             <div className="movie-sources d-flex flex-column ml-4">
                 <img className="movie-poster" src={selectedSearch.poster} alt=""/>
+                
+                <YoutubeEmbed embedId={embedId} />
+
                 <div className="movie-links d-flex flex-row mt-2">
-                    <Button className="link-btn mr-2">Watch the Trailer</Button>
                     <Button className="link-btn">Purchase this {selectedSearch.type}</Button>
                 </div>
             </div>

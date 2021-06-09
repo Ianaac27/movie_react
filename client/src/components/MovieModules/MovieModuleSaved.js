@@ -3,9 +3,10 @@ import { Card, Button } from "react-bootstrap";
 import "../../App.css";
 import FavButton from "../FavButton/FavButton";
 import RatingBar from "../RatingBars/RatingBar";
+import YoutubeEmbed from "../YoutubeEmbed";
 
 
-function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open, setOpen, savedIds, setSavedIds}) {
+function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open, setOpen, savedIds, setSavedIds, embedId}) {
     
     return (
     <Card className="module" >
@@ -36,8 +37,9 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
             </div>
             <div className="movie-sources d-flex flex-column ml-4">
                 <img className="movie-poster" src={selectedMovie.poster} alt=""/>
+
+                <YoutubeEmbed embedId={embedId} />
                 <div className="movie-links d-flex flex-row mt-2">
-                    <Button className="link-btn mr-2">Watch the Trailer</Button>
                     <Button className="link-btn">Purchase this {selectedMovie.type}</Button>
                 </div>
             </div>
