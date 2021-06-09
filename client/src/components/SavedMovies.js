@@ -9,15 +9,16 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, set
         const handleMovieModule = (e, movie) => {
 
                 const movieTitle = movie.title
+                const movieYear = movie.year
 
                 setSelectedMovie(movie)
-                handleMovieTrailer(movieTitle)
+                handleMovieTrailer(movieTitle, movieYear)
                 checkFav(movie)
               }
 
-        const handleMovieTrailer = ( movieTitle ) => {
+        const handleMovieTrailer = ( movieTitle, movieYear ) => {
 
-            movieTrailer( movieTitle, {id: true} )
+            movieTrailer( movieTitle, {id: true, year: movieYear} )
             .then( res => setEmbedId(res) 
             )
         }

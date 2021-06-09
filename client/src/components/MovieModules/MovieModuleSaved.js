@@ -7,6 +7,8 @@ import YoutubeEmbed from "../YoutubeEmbed";
 
 
 function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open, setOpen, savedIds, setSavedIds, embedId}) {
+
+    const googleSearch = "https://www.google.com/search?q="+ selectedMovie.title +"%20"+ selectedMovie.director +"%20"+ selectedMovie.type +"&sxsrf=ALeKk03oVOk4ImHSjhqk2XH-aldJbaO9Ug:1623276725144&source=lnms&tbm=shop&sa=X&ved=2ahUKEwjhvsuEyYvxAhUR5J4KHTfMDqcQ_AUoA3oECAEQBQ&biw=1024&bih=625"
     
     return (
     <Card className="module" >
@@ -40,7 +42,7 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
 
                 <YoutubeEmbed embedId={embedId} />
                 <div className="movie-links d-flex flex-row mt-2">
-                    <Button className="link-btn">Purchase this {selectedMovie.type}</Button>
+                    <Button className="link-btn" href={googleSearch} >Purchase this {selectedMovie.type}</Button>
                 </div>
             </div>
         </Card.Body>

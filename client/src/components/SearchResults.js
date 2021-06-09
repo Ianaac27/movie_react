@@ -12,6 +12,7 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
         .then(({data}) => {
 
                 const movieTitle = data.Title
+                const movieYear = data.Year
 
                 setSelectedSearch({
                     actors: data.Actors,
@@ -26,14 +27,14 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
                     type: data.Type,
                     year: data.Year
                 })
-                handleMovieTrailer(movieTitle)
+                handleMovieTrailer(movieTitle, movieYear)
                 checkFav(movie)
             })
         }
 
-        const handleMovieTrailer = ( movieTitle ) => {
+        const handleMovieTrailer = ( movieTitle, movieYear  ) => {
 
-            movieTrailer( movieTitle, {id: true} )
+            movieTrailer( movieTitle, {id: true, year: movieYear} )
             .then( res => setEmbedId(res) 
             )
         }
