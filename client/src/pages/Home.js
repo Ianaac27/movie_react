@@ -11,6 +11,8 @@ function Home () {
   const [apiKey, setApiKey] = useState("a3d98e34")
   const [open, setOpen] = useState(false);
 
+  console.log(savedIds)
+
   useEffect(() => {
     loadMovies()
   }, [])
@@ -18,7 +20,16 @@ function Home () {
 const loadMovies = (req,res) => {
     API.getMovies(res)
         .then(res => {
-            setSavedMovies(res.data);      
+          const movieList = res.data
+          const movieArr = []
+ 
+          movieList.forEach(function(movie) {
+              let {id} = movie
+              movieArr.push(id)
+
+              setSavedIds(movieArr)
+              setSavedMovies(movieList);
+            })   
         })
         .catch(err => console.log(err));
       } 
