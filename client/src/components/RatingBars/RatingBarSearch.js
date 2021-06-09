@@ -2,18 +2,16 @@ import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-function RatingBar({ selectedMovie }) {
-
-    console.log(selectedMovie.score)
+function RatingBarSearch({ selectedSearch }) {
 
   return (
     <>
       <div className="pie" style={{ width: "260px" }}>
         <CircularProgressbar
           className="mb-4"
-          value={selectedMovie.score}
+          value={selectedSearch.score}
           maxValue={10}
-          text={`${selectedMovie.score}`}
+          text={`${selectedSearch.score}`}
           styles={buildStyles({
             textColor: "grey",
             pathColor: "red",
@@ -25,4 +23,4 @@ function RatingBar({ selectedMovie }) {
   );
 }
 
-export default RatingBar;
+export default RatingBarSearch;

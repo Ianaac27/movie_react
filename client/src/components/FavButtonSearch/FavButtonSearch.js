@@ -9,12 +9,6 @@ const FavButtonSearch = ({apiKey, open, setOpen, setSavedMovies, savedMovies, se
 const toggleFav = () => {
   if (open == true) {
       setOpen(false)
-
-      const removeId = savedIds.indexOf(selectedSearch.id);
-      if (removeId > -1) {
-        savedIds.splice(removeId, 1);
-      }
-
       for (var i = 0; i < savedMovies.length; i++) {
         if (savedMovies[i].id === selectedSearch.id) {
             const id = savedMovies[i]._id
@@ -24,10 +18,6 @@ const toggleFav = () => {
         }
   } else {
       setOpen(true) 
-
-      const addId = savedIds.concat(selectedSearch.id);
-      setSavedIds(addId)
-
       axios.get("http://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
             .then(({data}) => {
                 console.log(data)
@@ -54,7 +44,16 @@ const toggleFav = () => {
 const loadMovies = (req,res) => {
   API.getMovies(res)
       .then(res => {
-          setSavedMovies(res.data);
+        const movieList = res.data
+        const movieArr = []
+
+        movieList.forEach(function(movie) {
+            let {id} = movie
+            movieArr.push(id)
+
+            setSavedIds(movieArr)
+            setSavedMovies(movieList);
+        })
       })
       .catch(err => console.log(err));
 }

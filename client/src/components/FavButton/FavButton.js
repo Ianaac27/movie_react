@@ -7,22 +7,12 @@ const FavButton = ({ open, setOpen, setSavedMovies, id, selectedMovie, savedIds,
 const toggleFav = () => {
   if (open == true) {
       setOpen(false)
-
-      const removeId = savedIds.indexOf(selectedMovie.id);
-      if (removeId > -1) {
-        savedIds.splice(removeId, 1);
-      }
-
       API.deleteMovie(id)
             .then(res => 
               loadMovies()
             )
   } else {
       setOpen(true) 
-
-      const addId = savedIds.concat(selectedMovie.id);
-      setSavedIds(addId)
-
       API.saveMovie({
         actors: selectedMovie.actors,
         director: selectedMovie.director,
@@ -45,7 +35,16 @@ const toggleFav = () => {
 const loadMovies = (req,res) => {
   API.getMovies(res)
       .then(res => {
-          setSavedMovies(res.data);
+        const movieList = res.data
+        const movieArr = []
+
+        movieList.forEach(function(movie) {
+            let {id} = movie
+            movieArr.push(id)
+
+            setSavedIds(movieArr)
+            setSavedMovies(movieList);
+        })
       })
       .catch(err => console.log(err));
 }

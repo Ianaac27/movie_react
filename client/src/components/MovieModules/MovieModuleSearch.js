@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "../../App.css";
 import FavButtonSearch from "../FavButtonSearch/FavButtonSearch";
+import RatingBarSearch from "../RatingBars/RatingBarSearch";
 
 function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKey, setSavedMovies, open, setOpen, savedIds, setSavedIds}) {
     
@@ -20,7 +21,7 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
                 <p>Starring: {selectedSearch.actors}</p>
                 <p>Directed by: {selectedSearch.director}</p>
                 <p>{selectedSearch.plot}</p>
-                <p>IMDB Rating: {selectedSearch.score}</p>
+                <RatingBarSearch selectedSearch={selectedSearch} />
 
                 <FavButtonSearch 
                     open={open} 

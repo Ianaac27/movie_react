@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "../../App.css";
 import FavButton from "../FavButton/FavButton";
-import RatingBar from "../RatingBar";
+import RatingBar from "../RatingBars/RatingBar";
 
 
 function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open, setOpen, savedIds, setSavedIds}) {
@@ -22,7 +22,6 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
                 <p>Starring: {selectedMovie.actors}</p>
                 <p>Directed by: {selectedMovie.director}</p>
                 <p>{selectedMovie.plot}</p>
-                {/* <p>IMDB Rating: {selectedMovie.score}</p> */}
                 <RatingBar selectedMovie={selectedMovie} />
 
                 <FavButton 
