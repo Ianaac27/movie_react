@@ -11,8 +11,6 @@ function Home () {
   const [apiKey, setApiKey] = useState("a3d98e34")
   const [open, setOpen] = useState(false);
 
-  console.log(savedIds)
-
   useEffect(() => {
     loadMovies()
   }, [])
