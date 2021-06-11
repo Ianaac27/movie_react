@@ -2,6 +2,8 @@
 import axios from "axios";
 import React from 'react';
 import {StyledFavButtonSearch } from './FavButtonSearch.styled';
+import { store } from 'react-notifications-component';
+import 'animate.css/animate.css';
 import API from "../../utils/api";
 
 const FavButtonSearch = ({apiKey, open, setOpen, setSavedMovies, savedMovies, selectedSearch, savedIds, setSavedIds }) => {
@@ -12,6 +14,7 @@ const toggleFav = () => {
       for (var i = 0; i < savedMovies.length; i++) {
         if (savedMovies[i].id === selectedSearch.id) {
             const id = savedMovies[i]._id
+            handleDeleteNotificationSearch()
             API.deleteMovie(id)
                     .then(res => loadMovies()
             )}
@@ -21,6 +24,7 @@ const toggleFav = () => {
       axios.get("http://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
             .then(({data}) => {
                 console.log(data)
+                handleSavedNotificationSearch(data)
                 API.saveMovie({
                     actors: data.Actors,
                     director: data.Director,
@@ -56,6 +60,42 @@ const loadMovies = (req,res) => {
         })
       })
       .catch(err => console.log(err));
+}
+
+const handleSavedNotificationSearch = (data) => {
+  store.addNotification({
+      message: data.Title + " has been added to your favorites",
+      type: "success",
+      insert: "top",
+      container: "top-full",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+          duration: 2000,
+          pauseOnHover: true,
+          onScreen: true,
+          click: true,
+          touch: true
+      }
+  });
+}
+
+const handleDeleteNotificationSearch = () => {
+  store.addNotification({
+      message: selectedSearch.title + " has been deleted from your favorites",
+      type: "warning",
+      insert: "top",
+      container: "top-full",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+          duration: 2000,
+          onScreen: true,
+          pauseOnHover: true,
+          click: true,
+          touch: true
+      }
+  });
 }
 
   return (

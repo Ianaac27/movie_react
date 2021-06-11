@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, {useRef} from "react";
 import { Card, Form, Button } from "react-bootstrap";
+import { store } from 'react-notifications-component';
+import 'animate.css/animate.css';
 
 function Search ({setMovies, apiKey}) {
     const movieInput = useRef();
@@ -11,11 +13,33 @@ function Search ({setMovies, apiKey}) {
         axios.get("http://www.omdbapi.com/?s=" + movieInput.current.value + "&apikey=" + apiKey)
         .then(({data}) => {
             console.log(data.Search);
-
-            setMovies(data.Search);
-        });
+            const movieData = data.Search
+            if (movieData.length == 0) {
+                return;
+            } else {
+                setMovies(movieData); 
+            }
+        }).catch(err => 
+            handleErrorNotification(err)) 
     }
 
+    const handleErrorNotification = (err) => {
+        store.addNotification({
+            message: "This search does not exist. Please search for something else",
+            type: "danger",
+            insert: "top",
+            container: "top-full",
+            animationIn: ["animate__animated", "animate__fadeIn"],
+            animationOut: ["animate__animated", "animate__fadeOut"],
+            dismiss: {
+                duration: 2000,
+                pauseOnHover: true,
+                onScreen: true,
+                click: true,
+                touch: true
+            }
+        });
+      }
 return (
     <Card className="bg-dark">
     <Card.Body>

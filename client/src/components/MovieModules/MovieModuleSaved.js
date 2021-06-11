@@ -5,7 +5,6 @@ import FavButton from "../FavButton/FavButton";
 import RatingBar from "../RatingBars/RatingBar";
 import YoutubeEmbed from "../YoutubeEmbed";
 
-
 function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open, setOpen, savedIds, setSavedIds, embedId}) {
 
     const googleSearch = "https://www.google.com/search?q="+ selectedMovie.title +"%20"+ selectedMovie.director +"%20"+ selectedMovie.type +"&sxsrf=ALeKk03oVOk4ImHSjhqk2XH-aldJbaO9Ug:1623276725144&source=lnms&tbm=shop&sa=X&ved=2ahUKEwjhvsuEyYvxAhUR5J4KHTfMDqcQ_AUoA3oECAEQBQ&biw=1024&bih=625"

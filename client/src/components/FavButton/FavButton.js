@@ -1,5 +1,7 @@
 import React from 'react';
 import {StyledFavButton } from './FavButton.styled';
+import { store } from 'react-notifications-component';
+import 'animate.css/animate.css';
 import API from "../../utils/api";
 
 const FavButton = ({ open, setOpen, setSavedMovies, id, selectedMovie, savedIds, setSavedIds }) => {
@@ -7,12 +9,14 @@ const FavButton = ({ open, setOpen, setSavedMovies, id, selectedMovie, savedIds,
 const toggleFav = () => {
   if (open == true) {
       setOpen(false)
+      handleDeleteNotification()
       API.deleteMovie(id)
             .then(res => 
               loadMovies()
             )
   } else {
-      setOpen(true) 
+      setOpen(true)
+      handleSavedNotification() 
       API.saveMovie({
         actors: selectedMovie.actors,
         director: selectedMovie.director,
@@ -47,6 +51,42 @@ const loadMovies = (req,res) => {
         })
       })
       .catch(err => console.log(err));
+}
+
+const handleSavedNotification = () => {
+  store.addNotification({
+      message: selectedMovie.title + " has been saved to your favorites",
+      type: "success",
+      insert: "top",
+      container: "top-full",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+          duration: 2000,
+          pauseOnHover: true,
+          onScreen: true,
+          click: true,
+          touch: true
+      }
+  });
+}
+
+const handleDeleteNotification = () => {
+  store.addNotification({
+      message: selectedMovie.title + " has been removed from your favorites",
+      type: "warning",
+      insert: "top",
+      container: "top-full",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+          duration: 2000,
+          onScreen: true,
+          pauseOnHover: true,
+          click: true,
+          touch: true
+      }
+  });
 }
 
   return (
