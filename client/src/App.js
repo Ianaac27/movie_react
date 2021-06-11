@@ -1,16 +1,23 @@
 import React from 'react';
 import './App.css';
 import Home from './pages/Home';
+import NotFound from "./pages/NotFound";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
 
 function App() {
   return ( 
     <>
+    <Router>
      <ReactNotification isMobile={true} breakpoint={768} />
-    <div className="container-fluid movie-app">
-      <Home />
-    </div>
+      <div className="container-fluid movie-app">
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route component={NotFound}/>
+        </Switch>
+      </div>
+    </Router>
     </>
   );
 }
