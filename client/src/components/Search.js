@@ -3,6 +3,8 @@ import React, {useRef} from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import { store } from 'react-notifications-component';
 import 'animate.css/animate.css';
+import NavBar from "./NavBar";
+// import headerImg from '../images/moviereel.jpeg'
 
 function Search ({setMovies, apiKey}) {
     const movieInput = useRef();
@@ -41,22 +43,24 @@ function Search ({setMovies, apiKey}) {
         });
       }
 return (
-    <Card className="bg-dark">
-    <Card.Body>
-        <h2 className="fs-2" >Movie Search</h2>
-        <Form onSubmit={handleSubmit} >
-            <Form.Group >
-                <Form.Label>Movie Name</Form.Label>
-                    <Form.Control ref={movieInput} type="text" placeholder="Search Movie" />
-            </Form.Group>
-            <div className="d-flex flex-row justify-content-end">
-                <Button variant="primary" size="md" type="submit">
-                    Search
-                </Button>
-            </div> 
-        </Form>
-    </Card.Body>
-</Card>
+    <>
+    <NavBar />
+    <div className="jumbotron d-flex justify-content-start">
+    <div  style= {{"height": "450px"}}>
+            <h1 className="fs-2 mb-3" style= {{"font-size": "60px"}} >Search for any movie!</h1>
+            <Form onSubmit={handleSubmit} >
+                <Form.Group >
+                        <Form.Control ref={movieInput} type="text" placeholder="Search Movie" className="w-50"/>
+                </Form.Group>
+                <div className="d-flex flex-row justify-content-start">
+                    <Button variant="danger" size="md" type="submit">
+                        Search
+                    </Button>
+                </div> 
+            </Form>
+    </div>
+    </div>
+    </>
 )
 }
 

@@ -3,6 +3,12 @@ body {
   color: #ffffff;
 }
 
+.jumbotron {
+  background-color: 'black';
+  background-image: url(./images/moviereel.jpeg);
+  background-size: cover;
+}
+
 .movie-app > .row, #faveMovies {
   overflow-x: auto;
   flex-wrap: nowrap;

@@ -78,7 +78,7 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
                 <img className="mod-toggleTwo" style= {{"height": "450px", "width": "325px"}} src={movie.Poster} alt={movie.Title} onClick={e => handleMovieModule(e, movie)} />
         </div>
         ):  <div className="col">
-                <h3 className="fs-1 text-white text-center mt-5">Search for any movie!</h3>
+                {/* <h3 className="fs-1 text-white text-center mt-5">Search for any movie!</h3> */}
             </div>}
         <MovieModuleSearch 
             savedMovies={savedMovies}
