@@ -74,8 +74,8 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
     return (
     <>
         {movies.length > 0 ? movies.map((movie, index)=>
-        <div className="w-25 h-25">
-                <img className="mod-toggleTwo" src={movie.Poster} alt={movie.Title} onClick={e => handleMovieModule(e, movie)} />
+        <div className="movieCard d-flex justify-contnet-start m-2">
+                <img className="mod-toggleTwo" style= {{"height": "450px", "width": "325px"}} src={movie.Poster} alt={movie.Title} onClick={e => handleMovieModule(e, movie)} />
         </div>
         ):  <div className="col">
                 <h3 className="fs-1 text-white text-center mt-5">Search for any movie!</h3>

@@ -58,11 +58,11 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, set
     return (
         <>
         <div className="col">
-             <h1 className="fs-1 text-white text-center mt-5">Favorites</h1>
+             <h1 className="fs-1 text-white ml-2 mt-5">Favorites</h1>
              <div className="row" id="faveMovies">
                 {savedMovies.length > 0 ? savedMovies.map((movie, index)=>
-                <div className="w-25 h-25" >
-                        <img className="mod-toggle" id={movie.id} src={movie.poster} alt={movie.title} onClick={e => handleMovieModule(e, movie)}/>
+                <div className="movieCard d-flex justify-contnet-start m-2">
+                    <img className="mod-toggle" style= {{"height": "450px", "width": "325px"}} id={movie.id} src={movie.poster} alt={movie.title} onClick={e => handleMovieModule(e, movie)}/>
                 </div>
                 ):  <div className="col">
                         <h3 className="fs-1 text-white text-center mt-5">You have no saved movies</h3>  
