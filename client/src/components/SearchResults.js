@@ -74,7 +74,7 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
     return (
     <>
         {movies.length > 0 ? movies.map((movie, index)=>
-        <div className="movieCard d-flex justify-contnet-start m-2">
+        <div className="movie-card d-flex justify-contnet-start m-2">
                 <img className="mod-toggleTwo" style= {{"height": "450px", "width": "325px"}} src={movie.Poster} alt={movie.Title} onClick={e => handleMovieModule(e, movie)} />
         </div>
         ):  <div className="col">

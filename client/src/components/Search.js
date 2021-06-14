@@ -1,10 +1,8 @@
 import axios from "axios";
 import React, {useRef} from "react";
-import { Card, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { store } from 'react-notifications-component';
 import 'animate.css/animate.css';
-import NavBar from "./NavBar";
-// import headerImg from '../images/moviereel.jpeg'
 
 function Search ({setMovies, apiKey}) {
     const movieInput = useRef();
@@ -44,7 +42,6 @@ function Search ({setMovies, apiKey}) {
       }
 return (
     <>
-    <NavBar />
     <div className="jumbotron d-flex justify-content-start">
     <div  style= {{"height": "450px"}}>
             <h1 className="fs-2 mb-3" style= {{"font-size": "60px"}} >Search for any movie!</h1>

@@ -7,11 +7,16 @@ body {
   background-color: 'black';
   background-image: url(./images/moviereel.jpeg);
   background-size: cover;
+  box-shadow: 2.5px 5px 13px black;
 }
 
 .movie-app > .row, #faveMovies {
   overflow-x: auto;
   flex-wrap: nowrap;
+}
+
+.movie-card {
+  box-shadow: 2.5px 5px 13px black;
 }
 
 ::-webkit-scrollbar {
