@@ -9,14 +9,14 @@ const FavButton = ({ open, setOpen, setSavedMovies, id, selectedMovie, savedIds,
 const toggleFav = () => {
   if (open == true) {
       setOpen(false)
-      handleDeleteNotification()
+      // handleDeleteNotification()
       API.deleteMovie(id)
             .then(res => 
               loadMovies()
             )
   } else {
       setOpen(true)
-      handleSavedNotification() 
+      // handleSavedNotification() 
       API.saveMovie({
         actors: selectedMovie.actors,
         director: selectedMovie.director,
@@ -53,44 +53,44 @@ const loadMovies = (req,res) => {
       .catch(err => console.log(err));
 }
 
-const handleSavedNotification = () => {
-  store.addNotification({
-      message: selectedMovie.title + " has been saved to your favorites",
-      type: "success",
-      insert: "bottom",
-      container: "bottom-center",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-          duration: 2000,
-          pauseOnHover: true,
-          onScreen: true,
-          click: true,
-          touch: true
-      }
-  });
-}
+// const handleSavedNotification = () => {
+//   store.addNotification({
+//       message: selectedMovie.title + " has been saved to your favorites",
+//       type: "success",
+//       insert: "bottom",
+//       container: "bottom-center",
+//       animationIn: ["animate__animated", "animate__fadeIn"],
+//       animationOut: ["animate__animated", "animate__fadeOut"],
+//       dismiss: {
+//           duration: 2000,
+//           pauseOnHover: true,
+//           onScreen: true,
+//           click: true,
+//           touch: true
+//       }
+//   });
+// }
 
-const handleDeleteNotification = () => {
-  store.addNotification({
-      message: selectedMovie.title + " has been removed from your favorites",
-      type: "warning",
-      insert: "bottom",
-      container: "bottom-center",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-          duration: 2000,
-          onScreen: true,
-          pauseOnHover: true,
-          click: true,
-          touch: true
-      }
-  });
-}
+// const handleDeleteNotification = () => {
+//   store.addNotification({
+//       message: selectedMovie.title + " has been removed from your favorites",
+//       type: "warning",
+//       insert: "bottom",
+//       container: "bottom-center",
+//       animationIn: ["animate__animated", "animate__fadeIn"],
+//       animationOut: ["animate__animated", "animate__fadeOut"],
+//       dismiss: {
+//           duration: 2000,
+//           onScreen: true,
+//           pauseOnHover: true,
+//           click: true,
+//           touch: true
+//       }
+//   });
+// }
 
   return (
-    <StyledFavButton className="ml-3 mt-2" open={open} onClick={toggleFav}>
+    <StyledFavButton className="ml-5" open={open} onClick={toggleFav}>
       <div />
       <div />
       <div />

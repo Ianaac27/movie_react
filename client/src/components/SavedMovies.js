@@ -58,7 +58,7 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, set
     return (
         <>
         <div className="col">
-             <h1 className="fs-1 text-white ml-2 mt-2">Favorites</h1>
+             <h1 className="fs-1 text-white ml-2 mt-4">Favorites</h1>
              <div className="row" id="faveMovies">
                 {savedMovies.length > 0 ? savedMovies.map((movie, index)=>
                 <div className="movie-card d-flex justify-contnet-start m-2">

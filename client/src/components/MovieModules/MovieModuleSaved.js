@@ -15,22 +15,28 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
             <span class="close-bar"></span>
             <span class="close-bar"></span>
         </div>
-        <Card.Body className="mod-main d-flex flex-wrap-reverse justify-content-center align-item-center m-5">
-            <div className="movie-info d-flex flex-column w-50">
-                <h5>{selectedMovie.title}</h5>
-                <p>{selectedMovie.rated}</p>
-                <p>{selectedMovie.year}</p>
-                <p>Runtime: {selectedMovie.runtime}</p>
-                <p>Starring: {selectedMovie.actors}</p>
-                <p>Directed by: {selectedMovie.director}</p>
-                <p className="mb-3">{selectedMovie.plot}</p>
-                <div className="d-flex flex-row justify-content-between mt-3 m-5">
-                    <div className="d-flex flex-column justify-content-center ml-5">
-                        <p className="text-center mt-2"> IMDb rating </p>
+        <h1 className="text-center mt-5">{selectedMovie.title}</h1>
+        <Card.Body className="mod-main d-flex flex-wrap justify-content-center align-item-center m-5">
+            <div className="movie-sources d-flex flex-column">
+                <div className="d-flex flex-column justify-content-end mb-3 ml-5">
+                    <img className="movie-poster ml-5" style={{"width": "290px", "height": "350px"}}  src={selectedMovie.poster} alt=""/>
+                    <YoutubeEmbed embedId={embedId} />
+                </div>
+            </div>
+            <div className="movie-info d-flex flex-column w-50 ml-5">
+                <h2 className="ml-4">{selectedMovie.rated}</h2>
+                <p className="ml-4 mt-2">{selectedMovie.year}</p>
+                <p className="ml-4 mt-2">Runtime: {selectedMovie.runtime}</p>
+                <p className="ml-4 mt-2">Starring: {selectedMovie.actors}</p>
+                <p className="ml-4 mt-2">Directed by: {selectedMovie.director}</p>
+                <p className="ml-4 mb-3 mt-2">{selectedMovie.plot}</p>
+                <div className="d-flex flex-row justify-content-start mt-2 ml-5">
+                    <div className="d-flex flex-column justify-content-center mr-5 mt-4">
+                        <p className="text-center"> IMDb rating </p>
                         <RatingBar selectedMovie={selectedMovie} />
                     </div>
-                    <div className="d-flex flex-column justify-content-center ml-2">
-                        <p className="text-center">Favorites List</p>
+                    <div className="d-flex flex-column justify-content-center mt-2 ml-4">
+                        <p className="text-center mt-4 ml-1">Favorites List</p>
                         <FavButton 
                             open={open} 
                             setOpen={setOpen} 
@@ -39,16 +45,8 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
                             selectedMovie={selectedMovie}
                             savedIds={savedIds}
                             setSavedIds={setSavedIds}/>
+                        <Button variant="danger" className="purchase-btn btn mt-3 ml-3" size="sm" href={googleSearch} >Purchase this {selectedMovie.type}</Button>
                     </div>
-                    <div className="d-flex flex-column justify-content-center mr-5 mt-4">
-                        <Button variant="danger" className="purchase-btn btn mt-3" size="sm" href={googleSearch} >Purchase this {selectedMovie.type}</Button>    
-                    </div>    
-                </div>
-            </div>
-            <div className="movie-sources d-flex flex-column ml-2">
-                <div className="d-flex flex-column justify-content-end ml-5 mb-3">
-                    <img className="movie-poster" style={{"width": "275px", "height": "350px"}}  src={selectedMovie.poster} alt=""/>
-                    <YoutubeEmbed embedId={embedId} />
                 </div>
             </div>
         </Card.Body>

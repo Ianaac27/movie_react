@@ -3,6 +3,8 @@ import React, {useRef} from "react";
 import { Form } from "react-bootstrap";
 import { store } from 'react-notifications-component';
 import 'animate.css/animate.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Search ({setMovies, apiKey}) {
     const movieInput = useRef();
@@ -46,13 +48,15 @@ return (
     <div  style= {{"height": "450px"}}>
             <h1 className="fs-2 mb-3" style= {{"font-size": "60px"}} >Search for any movie!</h1>
             <Form onSubmit={handleSubmit} >
-                <Form.Group >
-                        <Form.Control ref={movieInput} type="text" placeholder="Search Movie" className="w-50"/>
-                </Form.Group>
                 <div className="d-flex flex-row justify-content-start">
-                    <button className="btn"  size="md" type="submit">
-                        Search
-                    </button>
+                    <Form.Group >
+                            <Form.Control ref={movieInput} type="text" placeholder="Search Movie" className="w-100"/>
+                    </Form.Group>
+                    <div>
+                        <button className="btn ml-2"  size="md" type="submit">
+                            <FontAwesomeIcon style={{"color": "white"}} icon={faSearch}/>
+                        </button>
+                    </div>
                 </div> 
             </Form>
     </div>

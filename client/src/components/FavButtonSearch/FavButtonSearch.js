@@ -14,7 +14,7 @@ const toggleFav = () => {
       for (var i = 0; i < savedMovies.length; i++) {
         if (savedMovies[i].id === selectedSearch.id) {
             const id = savedMovies[i]._id
-            handleDeleteNotificationSearch()
+            // handleDeleteNotificationSearch()
             API.deleteMovie(id)
                     .then(res => loadMovies()
             )}
@@ -24,7 +24,7 @@ const toggleFav = () => {
       axios.get("http://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
             .then(({data}) => {
                 console.log(data)
-                handleSavedNotificationSearch(data)
+                // handleSavedNotificationSearch(data)
                 API.saveMovie({
                     actors: data.Actors,
                     director: data.Director,
@@ -62,44 +62,44 @@ const loadMovies = (req,res) => {
       .catch(err => console.log(err));
 }
 
-const handleSavedNotificationSearch = (data) => {
-  store.addNotification({
-      message: data.Title + " has been added to your favorites",
-      type: "success",
-      insert: "bottom",
-      container: "bottom-center",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-          duration: 2000,
-          pauseOnHover: true,
-          onScreen: true,
-          click: true,
-          touch: true
-      }
-  });
-}
+// const handleSavedNotificationSearch = (data) => {
+//   store.addNotification({
+//       message: data.Title + " has been saved to your favorites",
+//       type: "success",
+//       insert: "bottom",
+//       container: "bottom-center",
+//       animationIn: ["animate__animated", "animate__fadeIn"],
+//       animationOut: ["animate__animated", "animate__fadeOut"],
+//       dismiss: {
+//           duration: 2000,
+//           pauseOnHover: true,
+//           onScreen: true,
+//           click: true,
+//           touch: true
+//       }
+//   });
+// }
 
-const handleDeleteNotificationSearch = () => {
-  store.addNotification({
-      message: selectedSearch.title + " has been deleted from your favorites",
-      type: "warning",
-      insert: "bottom",
-      container: "bottom-center",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-          duration: 2000,
-          onScreen: true,
-          pauseOnHover: true,
-          click: true,
-          touch: true
-      }
-  });
-}
+// const handleDeleteNotificationSearch = () => {
+//   store.addNotification({
+//       message: selectedSearch.title + " has been removed from your favorites",
+//       type: "warning",
+//       insert: "bottom",
+//       container: "bottom-center",
+//       animationIn: ["animate__animated", "animate__fadeIn"],
+//       animationOut: ["animate__animated", "animate__fadeOut"],
+//       dismiss: {
+//           duration: 2000,
+//           onScreen: true,
+//           pauseOnHover: true,
+//           click: true,
+//           touch: true
+//       }
+//   });
+// }
 
   return (
-    <StyledFavButtonSearch className="ml-3 mt-2" open={open} onClick={toggleFav}>
+    <StyledFavButtonSearch className="ml-5" open={open} onClick={toggleFav}>
       <div />
       <div />
       <div />

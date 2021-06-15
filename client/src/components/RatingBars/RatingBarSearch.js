@@ -6,7 +6,7 @@ function RatingBarSearch({ selectedSearch }) {
 
   return (
     <>
-      <div className="pie" style={{ width: "80px" }}>
+      <div className="pie" style={{ width: "105px" }}>
         <CircularProgressbar
           value={selectedSearch.score}
           maxValue={10}

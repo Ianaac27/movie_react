@@ -70,8 +70,6 @@ body {
   justify-content: center;
   position: fixed;
   background-color: rgb(17, 17, 17);
-  background-size: cover;
-  background-blend-mode: multiply;
   width: 100%;
   height:100%;
   color: white;
@@ -81,17 +79,15 @@ body {
   bottom: 0;
   z-index: 100;
   opacity: .98;
-  transform: translateY(-100%);
+  transform: translateX(100%);
   transition:
     transform 750ms cubic-bezier(.5, 0, .5, 1),
     opacity 250ms linear;
-  /* box-shadow: -15px -5px -30px rgb(49, 48, 48); */
-  /* overflow: scroll; */
 }
 
-/* .mod-main {
-  box-shadow: 15px 5px 30px rgb(49, 48, 48);;
-} */
+.mod-main {
+  overflow-y: auto; 
+}
 
 .mod-toggle:hover {
   transition:
@@ -160,26 +156,12 @@ body {
   background: #3399bb;
 }
 
-/* .favoriteText {
-  position: absolute;
-  top: 30em;
-  right: 52em;
-} */
-
-/* .purchase-btn {
-  position: absolute;
-  top: 30em;
-  right: 38em;
-} */
-
 /* ================= Module Animation 2 ===================== */
 .moduleTwo {
   display: flex;
   justify-content: center;
   position: fixed;
   background-color: rgb(17, 17, 17);
-  background-size: cover;
-  background-blend-mode: multiply;
   width: 100%;
   height:100%;
   color: white;
@@ -189,15 +171,10 @@ body {
   bottom: 0;
   z-index: 100;
   opacity: .98;
-  transform: translateY(-100%);
+  transform: translateX(100%);
   transition:
     transform 750ms cubic-bezier(.5, 0, .5, 1),
     opacity 250ms linear;
-  box-shadow: -15px -5px -30px rgb(49, 48, 48);
-}
-
-.mod-mainTwo {
-  box-shadow: 15px 5px 30px rgb(49, 48, 48);;
 }
 
 .mod-toggleTwo:hover {

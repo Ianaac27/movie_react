@@ -15,22 +15,28 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
             <span class="close-barTwo"></span>
             <span class="close-barTwo"></span>
         </div>
-        <Card.Body className="mod-main d-flex flex-wrap-reverse justify-content-center align-item-center m-5">
-            <div className="movie-info d-flex flex-column w-50">
-                <h5>{selectedSearch.title}</h5>
-                <p>{selectedSearch.rated}</p>
-                <p>{selectedSearch.year}</p>
-                <p>Runtime: {selectedSearch.runtime}</p>
-                <p>Starring: {selectedSearch.actors}</p>
-                <p>Directed by: {selectedSearch.director}</p>
-                <p className="mb-3">{selectedSearch.plot}</p>
-                <div className="d-flex flex-row justify-content-between mt-3 m-5">
-                    <div className="d-flex flex-column justify-content-center ml-5">
-                        <p className="text-center mt-2"> IMDb rating </p>
+        <h1 className="text-center mt-5">{selectedSearch.title}</h1>
+        <Card.Body className="mod-main d-flex flex-wrap justify-content-center align-item-center m-5">
+            <div className="movie-sources d-flex flex-column">
+                <div className="d-flex flex-column justify-content-end ml-5 mb-3">
+                    <img className="movie-poster ml-5" style={{"width": "290px", "height": "350px"}} src={selectedSearch.poster} alt=""/>
+                    <YoutubeEmbed embedId={embedId} />
+                </div>
+            </div>
+            <div className="movie-info d-flex flex-column w-50 ml-5">
+                <h2 className="ml-4">{selectedSearch.rated}</h2>
+                <p className="ml-4 mt-2">{selectedSearch.year}</p>
+                <p className="ml-4 mt-2">Runtime: {selectedSearch.runtime}</p>
+                <p className="ml-4 mt-2">Starring: {selectedSearch.actors}</p>
+                <p className="ml-4 mt-2">Directed by: {selectedSearch.director}</p>
+                <p className="ml-4 mb-3 mt-2">{selectedSearch.plot}</p>
+                <div className="d-flex flex-row justify-content-start mt-2 ml-5">
+                    <div className="d-flex flex-column justify-content-center mr-5 mt-4">
+                        <p className="text-center"> IMDb rating </p>
                         <RatingBarSearch selectedSearch={selectedSearch} />
                     </div>
-                    <div className="d-flex flex-column justify-content-center ml-2">
-                        <p className="text-center">Favorites List</p>
+                    <div className="d-flex flex-column justify-content-center mt-2 ml-4">
+                        <p className="text-center mt-4 ml-1">Favorites List</p>
                         <FavButtonSearch 
                             open={open} 
                             setOpen={setOpen}
@@ -41,18 +47,11 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
                             savedIds={savedIds}
                             setSavedIds={setSavedIds}
                         />
-                    </div>
-                    <div className="d-flex flex-column justify-content-center mr-5 mt-4">
-                        <Button variant="danger" className="purchase-btn btn mt-3" size="sm" href={googleSearch} >Purchase this {selectedSearch.type}</Button>    
+                        <Button variant="danger" className="purchase-btn btn mt-3 ml-3" size="sm" href={googleSearch} >Purchase this {selectedSearch.type}</Button>    
                     </div>  
                 </div>
             </div>
-            <div className="movie-sources d-flex flex-column ml-2">
-                <div className="d-flex flex-column justify-content-end ml-5 mb-3">
-                    <img className="movie-poster" style={{"width": "275px", "height": "350px"}} src={selectedSearch.poster} alt=""/>
-                    <YoutubeEmbed embedId={embedId} />
-                </div>
-            </div>
+           
         </Card.Body>
     </Card>
     )
