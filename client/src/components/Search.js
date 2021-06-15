@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, {useRef} from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { store } from 'react-notifications-component';
 import 'animate.css/animate.css';
 
@@ -50,9 +50,9 @@ return (
                         <Form.Control ref={movieInput} type="text" placeholder="Search Movie" className="w-50"/>
                 </Form.Group>
                 <div className="d-flex flex-row justify-content-start">
-                    <Button variant="danger" size="md" type="submit">
+                    <button className="btn"  size="md" type="submit">
                         Search
-                    </Button>
+                    </button>
                 </div> 
             </Form>
     </div>

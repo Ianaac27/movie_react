@@ -10,6 +10,16 @@ body {
   box-shadow: 2.5px 5px 13px black;
 }
 
+.btn {
+  background-color: #b30000;
+  color: white;
+}
+
+.btn:hover {
+  opacity: .9;
+  color: white;
+}
+
 .movie-app > .row, #faveMovies {
   overflow-x: auto;
   flex-wrap: nowrap;
@@ -40,6 +50,17 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000; 
+}
+
+/* OMDb link */
+.omdb {
+  color: #b30000;
+}
+
+.omdb:hover {
+  color: #b30000;
+  text-decoration: none;
+  opacity: .9;
 }
 
 /* ================= Module Animation ===================== */
