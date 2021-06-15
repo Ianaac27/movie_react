@@ -46,7 +46,7 @@ return (
     <>
     <div className="jumbotron d-flex justify-content-start">
     <div  style= {{"height": "450px"}}>
-            <h1 className="fs-2 mb-3" style= {{"font-size": "60px"}} >Search for any movie!</h1>
+            <h1 className="header-title fs-2 mb-3" style= {{"font-size": "60px"}} >Search for any movie!</h1>
             <Form onSubmit={handleSubmit} >
                 <div className="d-flex flex-row justify-content-start">
                     <Form.Group >

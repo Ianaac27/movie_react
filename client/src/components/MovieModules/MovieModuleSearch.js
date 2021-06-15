@@ -15,10 +15,10 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
             <span class="close-barTwo"></span>
             <span class="close-barTwo"></span>
         </div>
-        <h1 className="text-center mt-5">{selectedSearch.title}</h1>
+        <h1 className="movie-title text-center mt-5">{selectedSearch.title}</h1>
         <Card.Body className="mod-main d-flex flex-wrap justify-content-center align-item-center m-5">
             <div className="movie-sources d-flex flex-column">
-                <div className="d-flex flex-column justify-content-end ml-5 mb-3">
+                <div className="media-content d-flex flex-column justify-content-end ml-5 mb-3">
                     <img className="movie-poster ml-5" style={{"width": "290px", "height": "350px"}} src={selectedSearch.poster} alt=""/>
                     <YoutubeEmbed embedId={embedId} />
                 </div>
@@ -30,12 +30,12 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
                 <p className="ml-4 mt-2">Starring: {selectedSearch.actors}</p>
                 <p className="ml-4 mt-2">Directed by: {selectedSearch.director}</p>
                 <p className="ml-4 mb-3 mt-2">{selectedSearch.plot}</p>
-                <div className="d-flex flex-row justify-content-start mt-2 ml-5">
-                    <div className="d-flex flex-column justify-content-center mr-5 mt-4">
+                <div className="media-graphics d-flex flex-row justify-content-start mt-2 ml-5">
+                    <div className="rating-info d-flex flex-column justify-content-center mr-5 mt-4">
                         <p className="text-center"> IMDb rating </p>
                         <RatingBarSearch selectedSearch={selectedSearch} />
                     </div>
-                    <div className="d-flex flex-column justify-content-center mt-2 ml-4">
+                    <div className="fav-functions d-flex flex-column justify-content-center mt-2 ml-4">
                         <p className="text-center mt-4 ml-1">Favorites List</p>
                         <FavButtonSearch 
                             open={open} 

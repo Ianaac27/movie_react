@@ -1,0 +1,231 @@
+@media screen and (max-width:1015px){
+    .mod-main {
+        margin: 0px!important;
+    }
+    .video-responsive {
+        margin-bottom: 10px!important;
+        width: 100%!important;
+        height: 100%!important;
+    }
+    .movie-poster {
+        /* margin-left: 0px!important; */
+        margin-bottom: 10px!important;
+        width: 100%!important;
+        height: 100%!important;
+    }
+
+    .media-content {
+        margin-right: 160px;
+    }
+    .movie-info {
+        margin-left: 10px!important;
+        width: 60%!important;
+    }
+    .media-graphics {
+        margin-left: 110px!important;
+    }
+}
+
+@media screen and (max-width:950px){
+    .mod-main {
+        margin: 0;
+    }
+    .video-responsive {
+        margin-bottom: 10px;
+    }
+    .movie-poster {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .movie-info {
+        margin: 0px!important;
+    }
+    .media-graphics {
+        margin-left: 95px!important;
+    }
+    .purchase-btn {
+        font-size: 12px;
+    }
+    .fav-button {
+        margin-right: 40px!important;
+    }
+}
+
+@media screen and (max-width:860px){
+    .media-graphics {
+        margin-left: 50px!important;
+    }
+}
+
+@media screen and (max-width:750px){
+    .header-title {
+        font-size: 50px!important;
+    }
+    .media-graphics {
+        margin-left: 100px!important;
+    }
+    .fav-functions {
+        margin-left: 15px!important;
+    }
+    .rating-info {
+        margin-right: 15px!important;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 80%!important;
+    }
+}
+
+@media screen and (max-width:655px){
+    .movie-title {
+        font-size: 30px!important;
+    }
+    .media-graphics {
+        margin-left: 120px!important;
+    }
+    .media-content {
+        margin-right: 145px;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 90%!important;
+    }
+}
+
+@media screen and (max-width:600px){
+    .header-title {
+        font-size: 35px!important;
+    }
+    .media-graphics {
+        margin-left: 93px!important;
+    }
+    .media-content {
+        margin-right: 145px;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 90%!important;
+    }
+}
+
+@media screen and (max-width:550px){
+    .media-graphics {
+        margin-left: 93px!important;
+    }
+    .media-content {
+        margin-right: 140px;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 100%!important;
+    }
+}
+
+@media screen and (max-width:500px){
+    .media-graphics {
+        margin-left: 55px!important;
+    }
+    .media-content {
+        margin-right: 80px;
+        margin-left: 0px!important;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 100%!important;
+    }
+}
+
+@media screen and (max-width:445px){
+    .header-title {
+        font-size: 30px!important;
+    }
+    .media-graphics {
+        margin-left: 40px!important;
+    }
+    .media-content {
+        margin-right: 80px;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 100%!important;
+    }
+}
+
+@media screen and (max-width:380px){
+    .movie-title {
+        font-size: 20px!important;
+    }
+    .media-graphics {
+        margin-left: 25px!important;
+    }
+    .media-content {
+        margin-right: 90px;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 100%!important;
+    }
+}
+
+@media screen and (max-width:355px){
+    .header-title {
+        font-size: 25px!important;
+    }
+    .media-graphics {
+        margin-left: 10px!important;
+    }
+    .media-content {
+        margin-right: 90px;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 100%!important;
+    }
+    .fav-functions {
+        margin-left: 5px!important;
+    }
+    .rating-info {
+        margin-right: 5px!important;
+    }
+}
+
+@media screen and (max-width:320px){
+    .header-title {
+        font-size: 20px!important;
+    }
+    .media-graphics {
+        margin-left: 10px!important;
+    }
+    .media-content {
+        margin-right: 90px;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 100%!important;
+    }
+    .fav-functions {
+        margin-left: 0px!important;
+    }
+    .rating-info {
+        margin-right: 0px!important;
+    }
+}
+
+@media screen and (max-width:285px){
+    .media-graphics {
+        margin-left: 10px!important;
+    }
+    .media-content {
+        margin-right: 90px;
+    }
+    .movie-info {
+        margin-left: 0px!important;
+        width: 100%!important;
+    }
+    .fav-functions {
+        margin-left: -5px!important;
+    }
+    .rating-info {
+        margin-right: -5px!important;
+    }
+}

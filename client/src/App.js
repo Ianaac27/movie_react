@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css'
+import './Mobile.css'
 import Home from './pages/Home';
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";

@@ -15,11 +15,11 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
             <span class="close-bar"></span>
             <span class="close-bar"></span>
         </div>
-        <h1 className="text-center mt-5">{selectedMovie.title}</h1>
+        <h1 className="movie-title text-center mt-5">{selectedMovie.title}</h1>
         <Card.Body className="mod-main d-flex flex-wrap justify-content-center align-item-center m-5">
             <div className="movie-sources d-flex flex-column">
-                <div className="d-flex flex-column justify-content-end mb-3 ml-5">
-                    <img className="movie-poster ml-5" style={{"width": "290px", "height": "350px"}}  src={selectedMovie.poster} alt=""/>
+                <div className="media-content d-flex flex-column justify-content-center mb-3 ml-5">
+                    <img className="movie-poster ml-5 mb-3" style={{"width": "290px", "height": "350px"}}  src={selectedMovie.poster} alt=""/>
                     <YoutubeEmbed embedId={embedId} />
                 </div>
             </div>
@@ -30,12 +30,12 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
                 <p className="ml-4 mt-2">Starring: {selectedMovie.actors}</p>
                 <p className="ml-4 mt-2">Directed by: {selectedMovie.director}</p>
                 <p className="ml-4 mb-3 mt-2">{selectedMovie.plot}</p>
-                <div className="d-flex flex-row justify-content-start mt-2 ml-5">
-                    <div className="d-flex flex-column justify-content-center mr-5 mt-4">
+                <div className="media-graphics d-flex flex-row justify-content-start mt-3 ml-5">
+                    <div className="rating-info d-flex flex-column justify-content-center mr-5 mt-4">
                         <p className="text-center"> IMDb rating </p>
                         <RatingBar selectedMovie={selectedMovie} />
                     </div>
-                    <div className="d-flex flex-column justify-content-center mt-2 ml-4">
+                    <div className="fav-functions d-flex flex-column justify-content-center mt-2 ml-4">
                         <p className="text-center mt-4 ml-1">Favorites List</p>
                         <FavButton 
                             open={open} 

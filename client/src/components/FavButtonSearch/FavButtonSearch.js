@@ -99,7 +99,7 @@ const loadMovies = (req,res) => {
 // }
 
   return (
-    <StyledFavButtonSearch className="ml-5" open={open} onClick={toggleFav}>
+    <StyledFavButtonSearch className="fav-button ml-5" open={open} onClick={toggleFav}>
       <div />
       <div />
       <div />
