@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 export const StyledFavButtonSearch = styled.button`
-  position: absolute;
-  top: 32em;
-  right: 41em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

@@ -57,8 +57,8 @@ const handleSavedNotification = () => {
   store.addNotification({
       message: selectedMovie.title + " has been saved to your favorites",
       type: "success",
-      insert: "top",
-      container: "top-full",
+      insert: "bottom",
+      container: "bottom-center",
       animationIn: ["animate__animated", "animate__fadeIn"],
       animationOut: ["animate__animated", "animate__fadeOut"],
       dismiss: {
@@ -75,8 +75,8 @@ const handleDeleteNotification = () => {
   store.addNotification({
       message: selectedMovie.title + " has been removed from your favorites",
       type: "warning",
-      insert: "top",
-      container: "top-full",
+      insert: "bottom",
+      container: "bottom-center",
       animationIn: ["animate__animated", "animate__fadeIn"],
       animationOut: ["animate__animated", "animate__fadeOut"],
       dismiss: {
@@ -90,7 +90,7 @@ const handleDeleteNotification = () => {
 }
 
   return (
-    <StyledFavButton open={open} onClick={toggleFav}>
+    <StyledFavButton className="ml-3 mt-2" open={open} onClick={toggleFav}>
       <div />
       <div />
       <div />

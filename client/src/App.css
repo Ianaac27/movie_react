@@ -13,6 +13,7 @@ body {
 .btn {
   background-color: #b30000;
   color: white;
+  border-color: rgb(17, 17, 17);
 }
 
 .btn:hover {
@@ -84,12 +85,13 @@ body {
   transition:
     transform 750ms cubic-bezier(.5, 0, .5, 1),
     opacity 250ms linear;
-  box-shadow: -15px -5px -30px rgb(49, 48, 48);
+  /* box-shadow: -15px -5px -30px rgb(49, 48, 48); */
+  /* overflow: scroll; */
 }
 
-.mod-main {
+/* .mod-main {
   box-shadow: 15px 5px 30px rgb(49, 48, 48);;
-}
+} */
 
 .mod-toggle:hover {
   transition:
@@ -157,6 +159,18 @@ body {
 #close-icon:hover > span {
   background: #3399bb;
 }
+
+/* .favoriteText {
+  position: absolute;
+  top: 30em;
+  right: 52em;
+} */
+
+/* .purchase-btn {
+  position: absolute;
+  top: 30em;
+  right: 38em;
+} */
 
 /* ================= Module Animation 2 ===================== */
 .moduleTwo {

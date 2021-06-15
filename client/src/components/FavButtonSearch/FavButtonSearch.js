@@ -66,8 +66,8 @@ const handleSavedNotificationSearch = (data) => {
   store.addNotification({
       message: data.Title + " has been added to your favorites",
       type: "success",
-      insert: "top",
-      container: "top-full",
+      insert: "bottom",
+      container: "bottom-center",
       animationIn: ["animate__animated", "animate__fadeIn"],
       animationOut: ["animate__animated", "animate__fadeOut"],
       dismiss: {
@@ -84,8 +84,8 @@ const handleDeleteNotificationSearch = () => {
   store.addNotification({
       message: selectedSearch.title + " has been deleted from your favorites",
       type: "warning",
-      insert: "top",
-      container: "top-full",
+      insert: "bottom",
+      container: "bottom-center",
       animationIn: ["animate__animated", "animate__fadeIn"],
       animationOut: ["animate__animated", "animate__fadeOut"],
       dismiss: {
@@ -99,7 +99,7 @@ const handleDeleteNotificationSearch = () => {
 }
 
   return (
-    <StyledFavButtonSearch open={open} onClick={toggleFav}>
+    <StyledFavButtonSearch className="ml-3 mt-2" open={open} onClick={toggleFav}>
       <div />
       <div />
       <div />

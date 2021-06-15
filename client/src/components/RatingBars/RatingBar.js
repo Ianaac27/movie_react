@@ -5,9 +5,8 @@ import "react-circular-progressbar/dist/styles.css";
 function RatingBar({ selectedMovie }) {
   return (
     <>
-      <div className="pie" style={{ width: "260px" }}>
+      <div className="pie" style={{ width: "80px" }}>
         <CircularProgressbar
-          className="mb-4"
           value={selectedMovie.score}
           maxValue={10}
           text={`${selectedMovie.score}`}
