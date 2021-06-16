@@ -60,13 +60,10 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
           }
 
           const setToggle = checker => {
-            console.log(checker)
             if (checker == true) {
                     setOpen(true)
-                console.log("Set open to true")
             } else {
                     setOpen(false)
-                console.log("Set open to false") 
             }
             document.body.classList.toggle('mod-openTwo');
           }
@@ -74,7 +71,7 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
     return (
     <>
         {movies.length > 0 ? movies.map((movie, index)=>
-        <div className="movie-card d-flex justify-contnet-start m-2">
+        <div className="movie-card d-flex justify-contnet-start m-2" key={movie.imdbID}>
                 <img className="mod-toggleTwo" style= {{"height": "450px", "width": "325px"}} src={movie.Poster} alt={movie.Title} onClick={e => handleMovieModule(e, movie)} />
         </div>
         ):  <div className="col">

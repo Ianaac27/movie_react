@@ -8,12 +8,10 @@ const API = {
   },
   // Saves a movie to the database
   saveMovie: function(movieData) {
-    console.log(movieData)
     return axios.post("/api/movies", movieData);
   },
    // Deletes the movie with the given id
    deleteMovie: function(id) {
-     console.log(id)
     return axios.delete("/api/movies/" + id);
   }
 

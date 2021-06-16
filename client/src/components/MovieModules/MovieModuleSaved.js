@@ -12,8 +12,8 @@ function MovieModuleSaved({selectedMovie, setSavedMovies, handleModuleLink, open
     return (
     <Card className="module" >
         <div id="close-icon" className="mod-close" onClick={handleModuleLink}>
-            <span class="close-bar"></span>
-            <span class="close-bar"></span>
+            <span className="close-bar"></span>
+            <span className="close-bar"></span>
         </div>
         <h1 className="movie-title text-center mt-5">{selectedMovie.title}</h1>
         <Card.Body className="mod-main d-flex flex-wrap justify-content-center align-item-center m-5">

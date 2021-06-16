@@ -46,10 +46,8 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, set
         const setToggle = checker => {
             if (checker == true) {
                     setOpen(true)
-                console.log("Set open to true")
             } else {
                     setOpen(false)
-                console.log("Set open to false") 
             }
             document.body.classList.toggle('mod-open');
         }
@@ -61,7 +59,7 @@ function SavedMovies ({savedMovies, setSavedMovies, open, setOpen, savedIds, set
              <h1 className="fs-1 text-white ml-2 mt-4">Favorites</h1>
              <div className="row" id="faveMovies">
                 {savedMovies.length > 0 ? savedMovies.map((movie, index)=>
-                <div className="movie-card d-flex justify-contnet-start m-2">
+                <div className="movie-card d-flex justify-contnet-start m-2" key={movie.id}>
                     <img className="mod-toggle" style= {{"height": "450px", "width": "325px"}} id={movie.id} src={movie.poster} alt={movie.title} onClick={e => handleMovieModule(e, movie)}/>
                 </div>
                 ):  <div className="col">

@@ -10,7 +10,7 @@ function Home () {
   const [savedIds, setSavedIds] = useState([]);
   const [apiKey, setApiKey] = useState("a3d98e34")
   const [open, setOpen] = useState(false);
-  const [embedId, setEmbedId] = useState([]);
+  const [embedId, setEmbedId] = useState("");
 
   useEffect(() => {
     loadMovies()

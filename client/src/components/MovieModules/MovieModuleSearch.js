@@ -12,8 +12,8 @@ function MovieModuleSearch({selectedSearch, handleModuleLink, savedMovies, apiKe
     return (
     <Card className="moduleTwo" >
         <div id="close-iconTwo" className="mod-closeTwo" onClick={handleModuleLink}>
-            <span class="close-barTwo"></span>
-            <span class="close-barTwo"></span>
+            <span className="close-barTwo"></span>
+            <span className="close-barTwo"></span>
         </div>
         <h1 className="movie-title text-center mt-5">{selectedSearch.title}</h1>
         <Card.Body className="mod-main d-flex flex-wrap justify-content-center align-item-center m-5">
