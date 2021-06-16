@@ -21,7 +21,7 @@ const toggleFav = () => {
         }
   } else {
       setOpen(true) 
-      axios.get("http://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
+      axios.get("https://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
             .then(({data}) => {
                 // handleSavedNotificationSearch(data)
                 API.saveMovie({
