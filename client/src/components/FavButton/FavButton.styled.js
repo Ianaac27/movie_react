@@ -33,7 +33,7 @@ export const StyledFavButton = styled.button`
       transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(90deg)'};
       width: ${({ open }) => open ? '24.5px' : '20px'};
       top: ${({ open }) => open ? '20px' : '15px'};
-      left: ${({ open }) => open ? '20.5px' : '16.5px'};
+      left: ${({ open }) => open ? '20.5px' : '16.75px'};
     }
 
     :nth-child(2) {
@@ -55,7 +55,7 @@ export const StyledFavButton = styled.button`
       transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(90deg)'};
       opacity: ${({ open }) => open ? '0' : '1'};
       width: 12px;
-      left: 20.5px;
+      left: 21px;
       bottom: 12px;
     }
   }
