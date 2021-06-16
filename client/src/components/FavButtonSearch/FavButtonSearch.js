@@ -11,10 +11,15 @@ const FavButtonSearch = ({apiKey, open, setOpen, setSavedMovies, savedMovies, se
 const toggleFav = () => {
   if (open == true) {
       setOpen(false)
+
+      const removeId = savedIds.indexOf(selectedSearch.id);
+        if (removeId > -1) {
+          savedIds.splice(removeId, 1);
+        }
+
       for (var i = 0; i < savedMovies.length; i++) {
         if (savedMovies[i].id === selectedSearch.id) {
             const id = savedMovies[i]._id
-            // handleDeleteNotificationSearch()
             API.deleteMovie(id)
                     .then(res => loadMovies()
             )}
@@ -23,7 +28,6 @@ const toggleFav = () => {
       setOpen(true) 
       axios.get("https://www.omdbapi.com/?i=" + selectedSearch.id + "&apikey=" + apiKey)
             .then(({data}) => {
-                // handleSavedNotificationSearch(data)
                 API.saveMovie({
                     actors: data.Actors,
                     director: data.Director,
@@ -50,52 +54,19 @@ const loadMovies = (req,res) => {
         const movieList = res.data
         const movieArr = []
 
+        if (movieList.length == 0) {
+          setSavedMovies(movieList);
+      } else {
         movieList.forEach(function(movie) {
-            let {id} = movie
-            movieArr.push(id)
+          let {id} = movie
+          movieArr.push(id)
 
-            setSavedIds(movieArr)
-            setSavedMovies(movieList);
+          setSavedIds(movieArr)
+          setSavedMovies(movieList);
         })
-      })
-      .catch(err => console.log(err));
+      }
+    }).catch(err => console.log(err));
 }
-
-// const handleSavedNotificationSearch = (data) => {
-//   store.addNotification({
-//       message: data.Title + " has been saved to your favorites",
-//       type: "success",
-//       insert: "bottom",
-//       container: "bottom-center",
-//       animationIn: ["animate__animated", "animate__fadeIn"],
-//       animationOut: ["animate__animated", "animate__fadeOut"],
-//       dismiss: {
-//           duration: 2000,
-//           pauseOnHover: true,
-//           onScreen: true,
-//           click: true,
-//           touch: true
-//       }
-//   });
-// }
-
-// const handleDeleteNotificationSearch = () => {
-//   store.addNotification({
-//       message: selectedSearch.title + " has been removed from your favorites",
-//       type: "warning",
-//       insert: "bottom",
-//       container: "bottom-center",
-//       animationIn: ["animate__animated", "animate__fadeIn"],
-//       animationOut: ["animate__animated", "animate__fadeOut"],
-//       dismiss: {
-//           duration: 2000,
-//           onScreen: true,
-//           pauseOnHover: true,
-//           click: true,
-//           touch: true
-//       }
-//   });
-// }
 
   return (
     <StyledFavButtonSearch className="fav-button ml-5" open={open} onClick={toggleFav}>

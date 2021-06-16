@@ -12,6 +12,9 @@ function Home () {
   const [open, setOpen] = useState(false);
   const [embedId, setEmbedId] = useState("");
 
+  console.log("List of saved movies", savedMovies)
+  console.log("List of saved IDs", savedIds)
+
   useEffect(() => {
     loadMovies()
   }, [])
