@@ -12,7 +12,7 @@ function Search ({setMovies, apiKey}) {
     const handleSubmit = event => {
         event.preventDefault();
 
-        axios.get("http://www.omdbapi.com/?s=" + movieInput.current.value + "&apikey=" + apiKey)
+        axios.get("https://www.omdbapi.com/?s=" + movieInput.current.value + "&apikey=" + apiKey)
         .then(({data}) => {
             const movieData = data.Search
             if (movieData.length == 0) {

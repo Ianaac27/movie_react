@@ -8,7 +8,7 @@ function SearchResults({movies, apiKey, setSavedMovies, savedMovies, open, setOp
     const [selectedSearch, setSelectedSearch] = useState([]);
 
     const handleMovieModule = (e, movie) => {
-        axios.get("http://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=" + apiKey)
+        axios.get("https://www.omdbapi.com/?i=" + movie.imdbID + "&apikey=" + apiKey)
         .then(({data}) => {
 
                 const movieTitle = data.Title
