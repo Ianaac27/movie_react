@@ -6,8 +6,6 @@ MovieDb is an app that allows users to search for any movie and its information 
 This app was developed with MERN Stack technologies along with other dependencies such as, react-bootstrap, react-router-dom, mongoose, react-fontawesome, and react-notifications-component. I was responsible for developing all aspects of the MERN Stack in this application. These responsibilities included developing the MongoDB schema, applying multiple queries with the OMDb API, establishing api routes through mongoose and React to collect and store data for the favorite movies list, while also developing CRUD functions and styling animations on the frontend. I was also able to build responsiveness for mobile devises and was able to deploy the app to Heroku.
 
 The most challenging aspect of this project was the development of the toggle button to add and remove movies to and from the favorites list. This was challenging because the feature required me to manipulate multiple functions with one click, such as sending the api requests to add or remove the specified movie, while also defining and displaying the correct animation scheme regarding if the movie has been added or not. 
-
-User authentication for this app is currently in development.
     
 
 ## Table of Contents
